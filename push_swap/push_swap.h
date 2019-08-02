@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kmpoloke <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/18 11:37:26 by kmpoloke          #+#    #+#             */
-/*   Updated: 2019/06/23 15:03:57 by kmpoloke         ###   ########.fr       */
+/*   Created: 2019/08/02 11:20:07 by kmpoloke          #+#    #+#             */
+/*   Updated: 2019/08/02 11:26:05 by kmpoloke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-int		ft_tolower(int c)
+#include "get_next_line/get_next_line.h"
+
+#include "get_next_line/libft/libft.h"
+#include "get_next_line/get_next_line.h"
+
+typedef struct a_stack
 {
-	if (c >= 65 && c <= 90)
-		c += 32;
-	else
-		return (c);
-	return (c);
-}
+	int num;
+	struct a_stack *next;
+	struct a_stack *prev;
+}A_STACK;
+
+A_STACK    *sort_first_two(A_STACK *f);
+void    ft_print_stack(A_STACK *p);
+
+#endif
