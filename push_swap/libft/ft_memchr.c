@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sa.c                                            :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kmpoloke <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/30 15:01:24 by kmpoloke          #+#    #+#             */
-/*   Updated: 2019/07/30 15:01:32 by kmpoloke         ###   ########.fr       */
+/*   Created: 2019/06/14 11:46:34 by kmpoloke          #+#    #+#             */
+/*   Updated: 2019/06/23 14:35:17 by kmpoloke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-A_STACK    *sort_first_two(A_STACK *f)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	int			temp_1;
+	size_t			counta;
+	unsigned char	*new_str;
+	unsigned char	new_a;
 
-	if (f == NULL)
-		ft_putendl("Nothing In Stack A");
-	if (f->next == NULL)
-		ft_putendl("Only one structure found");
-	else
+	counta = 0;
+	new_str = (unsigned char*)s;
+	new_a = (unsigned char)c;
+	while (counta < n)
 	{
-		if ((f->num) > (f->prev->num))
-			{
-				temp_1 = f->num;
-				f->num = f->prev->num;
-				f->prev->num = temp_1;
-			}
+		if (new_str[counta] == new_a)
+			return (new_str + counta);
+		counta++;
 	}
-	return f;
+	return (0);
 }

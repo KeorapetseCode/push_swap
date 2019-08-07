@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sa.c                                            :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kmpoloke <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/30 15:01:24 by kmpoloke          #+#    #+#             */
-/*   Updated: 2019/07/30 15:01:32 by kmpoloke         ###   ########.fr       */
+/*   Created: 2019/06/18 10:50:29 by kmpoloke          #+#    #+#             */
+/*   Updated: 2019/06/23 14:44:25 by kmpoloke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-A_STACK    *sort_first_two(A_STACK *f)
+char	*ft_strcat(char *s1, const char *s2)
 {
-	int			temp_1;
+	int	counta;
+	int	len;
 
-	if (f == NULL)
-		ft_putendl("Nothing In Stack A");
-	if (f->next == NULL)
-		ft_putendl("Only one structure found");
-	else
+	counta = 0;
+	len = 0;
+	while (s1[len] != '\0')
 	{
-		if ((f->num) > (f->prev->num))
-			{
-				temp_1 = f->num;
-				f->num = f->prev->num;
-				f->prev->num = temp_1;
-			}
+		len++;
 	}
-	return f;
+	while (s2[counta] != '\0')
+	{
+		s1[len] = s2[counta];
+		counta++;
+		len++;
+	}
+	s1[len] = '\0';
+	return (s1);
 }

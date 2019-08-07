@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sa.c                                            :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kmpoloke <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/30 15:01:24 by kmpoloke          #+#    #+#             */
-/*   Updated: 2019/07/30 15:01:32 by kmpoloke         ###   ########.fr       */
+/*   Created: 2019/06/14 14:28:31 by kmpoloke          #+#    #+#             */
+/*   Updated: 2019/06/14 15:06:52 by kmpoloke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-A_STACK    *sort_first_two(A_STACK *f)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int			temp_1;
+	int		counta;
+	char	*ret;
+	int		len;
 
-	if (f == NULL)
-		ft_putendl("Nothing In Stack A");
-	if (f->next == NULL)
-		ft_putendl("Only one structure found");
+	if (!s)
+		return (NULL);
+	len = ft_strlen(s);
+	counta = 0;
+	if (!(ret = (char*)malloc(len + 1)))
+		return (NULL);
 	else
 	{
-		if ((f->num) > (f->prev->num))
-			{
-				temp_1 = f->num;
-				f->num = f->prev->num;
-				f->prev->num = temp_1;
-			}
+		while (s[counta] != '\0')
+		{
+			ret[counta] = f(counta, s[counta]);
+			counta++;
+		}
+		ret[counta] = '\0';
 	}
-	return f;
+	return (ret);
 }

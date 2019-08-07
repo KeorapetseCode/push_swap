@@ -14,9 +14,7 @@
 # define PUSH_SWAP_H
 
 #include "get_next_line/get_next_line.h"
-
-#include "get_next_line/libft/libft.h"
-#include "get_next_line/get_next_line.h"
+#include "libft/libft.h"
 
 typedef struct a_stack
 {
@@ -25,7 +23,18 @@ typedef struct a_stack
 	struct a_stack *prev;
 }A_STACK;
 
-A_STACK    *sort_first_two(A_STACK *f);
-void    ft_print_stack(A_STACK *p);
+typedef struct b_stack
+{
+	int num;
+	struct b_stack *next;
+	struct b_stack *prev;
+}B_STACK;
+
+void		print_stacks(A_STACK **a, A_STACK head, B_STACK **b);
+A_STACK		*sort_first_two(A_STACK *f);
+
+//B_STACK		*sort_first_two(B_STACK *d);
+void		pushto_b(A_STACK **a, B_STACK **b);
+
 
 #endif

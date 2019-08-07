@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sa.c                                            :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kmpoloke <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/30 15:01:24 by kmpoloke          #+#    #+#             */
-/*   Updated: 2019/07/30 15:01:32 by kmpoloke         ###   ########.fr       */
+/*   Created: 2019/06/14 11:02:58 by kmpoloke          #+#    #+#             */
+/*   Updated: 2019/06/23 14:28:43 by kmpoloke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-A_STACK    *sort_first_two(A_STACK *f)
+void	ft_bzero(void *s, size_t n)
 {
-	int			temp_1;
+	size_t	counta;
+	char	*new_s;
 
-	if (f == NULL)
-		ft_putendl("Nothing In Stack A");
-	if (f->next == NULL)
-		ft_putendl("Only one structure found");
-	else
+	new_s = (char*)s;
+	counta = 0;
+	while (counta < n)
 	{
-		if ((f->num) > (f->prev->num))
-			{
-				temp_1 = f->num;
-				f->num = f->prev->num;
-				f->prev->num = temp_1;
-			}
+		new_s[counta] = 0;
+		counta++;
 	}
-	return f;
 }

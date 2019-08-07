@@ -1,33 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sa.c                                            :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kmpoloke <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/30 15:01:24 by kmpoloke          #+#    #+#             */
-/*   Updated: 2019/07/30 15:01:32 by kmpoloke         ###   ########.fr       */
+/*   Created: 2019/06/14 12:22:17 by kmpoloke          #+#    #+#             */
+/*   Updated: 2019/06/23 16:21:53 by kmpoloke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-A_STACK    *sort_first_two(A_STACK *f)
+void	ft_putnbr_fd(int n, int fd)
 {
-	int			temp_1;
+	int		counta;
+	long	returna;
+	char	a[10];
 
-	if (f == NULL)
-		ft_putendl("Nothing In Stack A");
-	if (f->next == NULL)
-		ft_putendl("Only one structure found");
-	else
+	counta = 0;
+	returna = n;
+	if (returna < 0)
 	{
-		if ((f->num) > (f->prev->num))
-			{
-				temp_1 = f->num;
-				f->num = f->prev->num;
-				f->prev->num = temp_1;
-			}
+		ft_putchar_fd('-', fd);
+		returna = -returna;
 	}
-	return f;
+	if (returna == 0)
+		ft_putchar_fd('0', fd);
+	while (returna > 0)
+	{
+		a[counta] = returna % 10 + 48;
+		returna = returna / 10;
+		counta++;
+	}
+	counta--;
+	while (counta >= 0)
+	{
+		ft_putchar_fd(a[counta], fd);
+		counta--;
+	}
 }

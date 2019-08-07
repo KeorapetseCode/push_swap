@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sa.c                                            :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kmpoloke <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/30 15:01:24 by kmpoloke          #+#    #+#             */
-/*   Updated: 2019/07/30 15:01:32 by kmpoloke         ###   ########.fr       */
+/*   Created: 2019/06/14 11:42:23 by kmpoloke          #+#    #+#             */
+/*   Updated: 2019/06/23 14:31:32 by kmpoloke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-A_STACK    *sort_first_two(A_STACK *f)
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	int			temp_1;
+	size_t				counta;
+	unsigned char		*new_dest;
+	unsigned char		*new_src;
 
-	if (f == NULL)
-		ft_putendl("Nothing In Stack A");
-	if (f->next == NULL)
-		ft_putendl("Only one structure found");
-	else
+	counta = 0;
+	new_dest = (unsigned char*)dst;
+	new_src = (unsigned char*)src;
+	while (counta < n)
 	{
-		if ((f->num) > (f->prev->num))
-			{
-				temp_1 = f->num;
-				f->num = f->prev->num;
-				f->prev->num = temp_1;
-			}
+		new_dest[counta] = new_src[counta];
+		if (new_src[counta] == (unsigned char)c)
+			return (new_dest + counta + 1);
+		counta++;
 	}
-	return f;
+	return (0);
 }

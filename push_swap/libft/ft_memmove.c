@@ -1,33 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sa.c                                            :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kmpoloke <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/30 15:01:24 by kmpoloke          #+#    #+#             */
-/*   Updated: 2019/07/30 15:01:32 by kmpoloke         ###   ########.fr       */
+/*   Created: 2019/06/14 10:24:38 by kmpoloke          #+#    #+#             */
+/*   Updated: 2019/06/25 09:12:13 by kmpoloke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-A_STACK    *sort_first_two(A_STACK *f)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	int			temp_1;
+	size_t	counta;
+	char	*new_dest;
+	char	*new_src;
 
-	if (f == NULL)
-		ft_putendl("Nothing In Stack A");
-	if (f->next == NULL)
-		ft_putendl("Only one structure found");
+	counta = 0;
+	if (dst == NULL && src == NULL)
+		return (NULL);
+	new_dest = (char*)dst;
+	new_src = (char*)src;
+	if (new_src < new_dest)
+	{
+		while (len--)
+			new_dest[len] = new_src[len];
+	}
 	else
 	{
-		if ((f->num) > (f->prev->num))
-			{
-				temp_1 = f->num;
-				f->num = f->prev->num;
-				f->prev->num = temp_1;
-			}
+		while (counta < len)
+		{
+			new_dest[counta] = new_src[counta];
+			counta++;
+		}
 	}
-	return f;
+	return (new_dest);
 }

@@ -1,33 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sa.c                                            :+:      :+:    :+:   */
+/*   ft_strnequ.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kmpoloke <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/30 15:01:24 by kmpoloke          #+#    #+#             */
-/*   Updated: 2019/07/30 15:01:32 by kmpoloke         ###   ########.fr       */
+/*   Created: 2019/06/18 11:20:31 by kmpoloke          #+#    #+#             */
+/*   Updated: 2019/06/22 16:39:46 by kmpoloke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-A_STACK    *sort_first_two(A_STACK *f)
+int		ft_strnequ(char const *s1, char const *s2, size_t n)
 {
-	int			temp_1;
+	int		ret;
+	size_t	counta;
 
-	if (f == NULL)
-		ft_putendl("Nothing In Stack A");
-	if (f->next == NULL)
-		ft_putendl("Only one structure found");
-	else
+	counta = 0;
+	ret = 0;
+	if (n == 0)
+		return (1);
+	if (s1 && s2)
 	{
-		if ((f->num) > (f->prev->num))
-			{
-				temp_1 = f->num;
-				f->num = f->prev->num;
-				f->prev->num = temp_1;
-			}
+		n--;
+		while ((s1[counta] && s2[counta]) && (s1[counta] == s2[counta]) && n--)
+			counta++;
+		ret = ((char)s1[counta] - (char)s2[counta]);
+		if (ret == 0)
+			return (1);
+		else
+			return (0);
 	}
-	return f;
+	return (0);
 }

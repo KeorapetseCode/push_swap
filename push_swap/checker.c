@@ -1,22 +1,26 @@
 
-//#include "get_next_line/get_next_line.h"
-//#include "get_next_line/libft/libft.h"
-//#include "libft/libft.h"
-
 #include "push_swap.h"
 
 int		main(int argc, char **argv)
 {
-	int 		counta;
+	int			counta;
 	int			i;
 	char		*input;
-	A_STACK 	*temp;
+
+	A_STACK 	*ptr_a;
 	A_STACK		head;
-	
+	B_STACK		*ptr_b;
+	B_STACK		struct_b;
+
 	i = 0;
 	counta = 1;
 	head.next = &head;
 	head.prev = &head;
+	
+	struct_b.next = &struct_b;
+	struct_b.prev = &struct_b;
+	ptr_b = NULL;
+	
 	if (argc > 1)
 	{
 		while (counta < argc)
@@ -31,12 +35,12 @@ int		main(int argc, char **argv)
 				i++;
 				if (argv[counta][i] == '\0')
 				{
-					temp = (A_STACK*)malloc(sizeof(A_STACK));
-					temp->num = ft_atoi(argv[counta]);
-					temp->next = head.next;
-					head.next = temp;
-					temp->prev = NULL;
-					temp->next->prev = temp;
+					ptr_a = (A_STACK*)malloc(sizeof(A_STACK));
+					ptr_a->num = ft_atoi(argv[counta]);
+					ptr_a->next = NULL;
+					ptr_a->prev = head.prev;
+					head.prev = ptr_a;
+					ptr_a->prev->next = ptr_a;
 				}
 			}
 			i = 0;
@@ -44,17 +48,25 @@ int		main(int argc, char **argv)
 		}
 		while (get_next_line(0, &input))
 		{
-			if (ft_strstr(input, "sa"))
-				{
-					temp = head.prev;
-					temp = sort_first_two(temp);
-				}
-			if (ft_strstr(input, "print"))
-				{
-					temp = head.prev;
-					ft_print_stack(temp);
-				}
-			if ((ft_strstr(input, "DONE") || ft_strstr(input, "done")))		
+			if (ft_strnstr(input, "sa", 2))
+			{
+					ptr_a = head.prev;
+					ptr_a = sort_first_two(ptr_a);
+		//			print_stacks(&ptr_a, &ptr_b);	
+			}
+			if (ft_strnstr(input, "pb", 2))
+			{
+			//	ptr_a = head.prev;
+				pushto_b(&ptr_a, &ptr_b);
+			//	print_stacks(&ptr_a, &ptr_b);
+			}
+			if (ft_strnstr(input, "print", 5))
+			{
+			//	ptr_a = head.next;
+				print_stacks(&ptr_a, head, &ptr_b);
+			}
+			if ((ft_strnstr(input, "DONE", 4) || ft_strnstr(input, "done", 4)))
+				return (0);
 		}
 	}
 	else
