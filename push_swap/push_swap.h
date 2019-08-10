@@ -28,13 +28,13 @@ typedef struct b_stack
 	int num;
 	struct b_stack *next;
 	struct b_stack *prev;
+
 }B_STACK;
 
 void		print_stacks(A_STACK **a, A_STACK head, B_STACK **b);
-A_STACK		*sort_first_two(A_STACK *f);
+A_STACK		*sort_first_two(A_STACK **f, A_STACK head);
 
 //B_STACK		*sort_first_two(B_STACK *d);
-void		pushto_b(A_STACK **a, B_STACK **b);
-
+void		pushto_b(A_STACK **a, A_STACK head, B_STACK **b);
 
 #endif

@@ -10,17 +10,18 @@ int		main(int argc, char **argv)
 	A_STACK 	*ptr_a;
 	A_STACK		head;
 	B_STACK		*ptr_b;
-	B_STACK		struct_b;
+	B_STACK		b_head;
 
 	i = 0;
 	counta = 1;
 	head.next = &head;
 	head.prev = &head;
 	
-	struct_b.next = &struct_b;
-	struct_b.prev = &struct_b;
+	b_head.next = &b_head;
+	b_head.prev = &b_head;
 	ptr_b = NULL;
 	
+
 	if (argc > 1)
 	{
 		while (counta < argc)
@@ -49,22 +50,14 @@ int		main(int argc, char **argv)
 		while (get_next_line(0, &input))
 		{
 			if (ft_strnstr(input, "sa", 2))
-			{
-					ptr_a = head.prev;
-					ptr_a = sort_first_two(ptr_a);
-		//			print_stacks(&ptr_a, &ptr_b);	
-			}
+				ptr_a = sort_first_two(&ptr_a, head);
+			
 			if (ft_strnstr(input, "pb", 2))
-			{
-			//	ptr_a = head.prev;
-				pushto_b(&ptr_a, &ptr_b);
-			//	print_stacks(&ptr_a, &ptr_b);
-			}
+				pushto_b(&ptr_a, head, &ptr_b);
+
 			if (ft_strnstr(input, "print", 5))
-			{
-			//	ptr_a = head.next;
 				print_stacks(&ptr_a, head, &ptr_b);
-			}
+			
 			if ((ft_strnstr(input, "DONE", 4) || ft_strnstr(input, "done", 4)))
 				return (0);
 		}

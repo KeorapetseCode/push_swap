@@ -4,6 +4,15 @@
 void    print_stacks(A_STACK **a, A_STACK head, B_STACK **b)
 {
     if ((*a)->next == NULL)
+    {
+        (*a) = head.next;
+        if ((*a) == NULL)
+        {
+            ft_putendl("Nothing in Stack A!");
+            return ;
+        }
+    }
+    if ((*a)->next == NULL)
         (*a) = head.next;
     ft_putendl("__  __");
     while ((*a) != NULL)
