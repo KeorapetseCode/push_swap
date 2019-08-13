@@ -15,26 +15,22 @@
 
 #include "get_next_line/get_next_line.h"
 #include "libft/libft.h"
+#include <stdio.h>
 
-typedef struct a_stack
+typedef struct stack
 {
 	int num;
-	struct a_stack *next;
-	struct a_stack *prev;
-}A_STACK;
+	struct stack *next;
+	struct stack *prev;
+}STACK;
 
-typedef struct b_stack
-{
-	int num;
-	struct b_stack *next;
-	struct b_stack *prev;
+int			check_num(char *str);
+int			get_input(char *input, STACK **a, STACK **b, STACK *head);
+void		print_stacks(STACK **a, STACK **b);
+STACK		*sort_first_two(STACK **a);
+STACK 		*make_alist(STACK **a, STACK *head, char *str);
 
-}B_STACK;
-
-void		print_stacks(A_STACK **a, A_STACK head, B_STACK **b);
-A_STACK		*sort_first_two(A_STACK **f, A_STACK head);
-
-//B_STACK		*sort_first_two(B_STACK *d);
-void		pushto_b(A_STACK **a, A_STACK head, B_STACK **b);
+//STACK		*sort_first_two(STACK **b);
+STACK		*pushto_b(STACK **a, STACK **b);
 
 #endif
