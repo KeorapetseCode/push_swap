@@ -21,6 +21,7 @@ int		main(int argc, char **argv)
 	STACK		head;
 
 	counta = 1;
+	a = NULL;
 	b = NULL;
 	head.prev = &head;
 	if (argc > 1)
@@ -28,12 +29,12 @@ int		main(int argc, char **argv)
 		while (counta < argc)
 		{
 			if (check_num(argv[counta]))
-				a = make_alist(&a, &head, argv[counta]);
+				make_alist(&a, &head, argv[counta]);
 			else
 				return (0);
 			counta++;
 		}
-		if (get_input(&input, &a, &b, &head) == 0)
+		if (get_input(input, a, b, head) == 0)
 			return (0);
 	}
 	else

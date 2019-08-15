@@ -12,19 +12,20 @@
 
 #include "push_swap.h"
 
-void	print_stacks(STACK **a, STACK **b)
+void	print_stacks(STACK **a, STACK **b, STACK *head)
 {
-/*	if ((*a) == NULL)
+	if ((*a)->next == NULL)
 	{
-		ft_putendl("Nothing in Stack A!");
-		return ;
-	}*/
+		(*a) = head->next;
+		if (!(*a))
+			ft_putendl("Stack A Is Empty!");
+	}
 	ft_putendl("__  __");
-	while ((*a)->next != NULL)
+	while ((*a))
 	{
 		ft_putnbr((*a)->num);
 		ft_putstr("   ");
-		if ((*b)->next != NULL)
+		if ((*b))
 		{
 			ft_putnbr((*b)->num);
 			(*b) = (*b)->next;
@@ -32,10 +33,6 @@ void	print_stacks(STACK **a, STACK **b)
 		ft_putchar('\n');
 		(*a) = (*a)->next;
 	}
-	while ((*b)->prev != NULL)
-		(*b) = (*b)->prev;
-	while ((*a)->prev != NULL)
-		(*a) = (*a)->next;
 	ft_putstr("\nA   B\n");
 	ft_putendl("--  --\n");
 }

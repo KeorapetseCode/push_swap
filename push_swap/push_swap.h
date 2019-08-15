@@ -25,10 +25,10 @@ typedef struct stack
 }STACK;
 
 int			check_num(char *str);
-int			get_input(char *input, STACK **a, STACK **b, STACK *head);
-void		print_stacks(STACK **a, STACK **b);
+int			get_input(char *input, STACK *a, STACK *b, STACK head);
+void		print_stacks(STACK **a, STACK **b, STACK *head);
 STACK		*sort_first_two(STACK **a);
-STACK 		*make_alist(STACK **a, STACK *head, char *str);
+void		make_alist(STACK **a, STACK *head, char *str);
 
 //STACK		*sort_first_two(STACK **b);
 STACK		*pushto_b(STACK **a, STACK **b);

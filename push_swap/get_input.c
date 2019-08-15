@@ -12,16 +12,17 @@
 
 #include "push_swap.h"
 
-int     get_input(char *input, STACK **a, STACK **b, STACK *head)
+int     get_input(char *input, STACK *a, STACK *b, STACK head)
 {
     while (get_next_line(0, &input))
 	{
-        if (ft_strnstr(input, "sa", 2))
-			sort_first_two(&a);
-		if (ft_strnstr(input, "pb", 2))
-			pushto_b(&a, &b);
+//      if (ft_strnstr(input, "sa", 2))
+//			sort_first_two(a);
+//		if (ft_strnstr(input, "pb", 2))
+//			pushto_b(a, b);
 		if (ft_strnstr(input, "print", 5))
-        	print_stacks(&a, &b);
+			print_stacks(&a, &b, &head);
+
 		if ((ft_strnstr(input, "DONE", 4) || ft_strnstr(input, "done", 4)))
 			return (0);
     }
