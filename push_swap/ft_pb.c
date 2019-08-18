@@ -1,34 +1,26 @@
 
 #include "push_swap.h"
 
-STACK	*pushto_b(STACK **a, STACK **b)
-{/*
+void	pushto_b(STACK **a, STACK **b, STACK *head, STACK *b_head)
+{
 	STACK		*temp;
 
-	if ((*a)->next == NULL)
-		(*a) = a_head->next;
-	if ((*a) == NULL && (*b) == NULL)
+	if (!(*a) || (*a)->next == NULL)
 	{
-		ft_putendl("Stack A Is Empty!");
-		return ;
+		(*a) = head->next;
+		if (!(*a))
+		{
+			ft_putendl("Stack A Is EMpty!");
+			return ;
+		}
 	}
-	/*
-	else if ((*a) != NULL && (*b) == NULL)	
-	{
-		(*b) = (STACK*)malloc(sizeof(STACK));
-		(*b)->num = (*a)->num;
-		(*b)->next = NULL;
-		temp = (*a)->next;
-		free((*a));
-		(*a) = temp;
-		a_head->next = (*a);
-	}
-	else if ((*a) != NULL && (*b) != NULL)
-	{
+	if ((*b))
 		(*b) = (*b)->next;
-		(*b) = (STACK*)malloc(sizeof(STACK));
-		(*b) = b_head;
-	}
-	return (*b);
-	 */
+	
+	make_blist(b, b_head, (*a)->num);
+	temp = (*a)->next;
+	free((*a));	
+	(*a) = temp;
+	head->next = temp;
+	free(temp);
 }

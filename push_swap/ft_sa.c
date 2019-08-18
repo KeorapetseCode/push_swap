@@ -12,34 +12,29 @@
 
 #include "push_swap.h"
 
-STACK	*sort_first_two(STACK **a)
+void	sort_first_two(STACK **a, STACK *head)
 {
 	int		temp;
 	
-/* 
 	if ((*a) == NULL || (*a)->next == NULL)
 	{
-		(*a) = a_head->next;
-		if ((*a) == NULL)
+		(*a) = head->next;
+		if (!(*a))
 		{
 			ft_putendl("Nothing In Stack A");
 			return ;
 		}
+		else if ((*a)->next == NULL)
+		{
+			ft_putendl("Only one structure found");	
+			return ;
+		}
 	}
-	if ((*a)->next == NULL)
-	{
-		ft_putendl("Only one structure found");	
-		return ;
-	}
-	else
-	{
-		if (((*a)->num) > ((*a)->next->num))
+	if (((*a)->num) > ((*a)->next->num))
 		{
 			temp = (*a)->num;
 			(*a)->num = (*a)->next->num;
 			(*a)->next->num = temp;
 		}
-	}
-	return (*a);
-	*/
+		(*a) = head->next;
 }

@@ -25,12 +25,14 @@ typedef struct stack
 }STACK;
 
 int			check_num(char *str);
-int			get_input(char *input, STACK *a, STACK *b, STACK head);
-void		print_stacks(STACK **a, STACK **b, STACK *head);
-STACK		*sort_first_two(STACK **a);
-void		make_alist(STACK **a, STACK *head, char *str);
+int			get_input(STACK **a, STACK **b, STACK *head, STACK *b_head);
+void		print_stacks(STACK **a, STACK **b, STACK *head, STACK *b_head);
+void		sort_first_two(STACK **a, STACK *head);
 
-//STACK		*sort_first_two(STACK **b);
-STACK		*pushto_b(STACK **a, STACK **b);
+void		make_alist(STACK **a, STACK *head, char *str);
+void		make_blist(STACK **b, STACK *b_head, int num);
+
+//void		sort_first_two(STACK **b);
+void		pushto_b(STACK **a, STACK **b, STACK *head, STACK *b_head);
 
 #endif

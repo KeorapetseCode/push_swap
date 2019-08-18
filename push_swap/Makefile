@@ -16,9 +16,9 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
 
-SOURCES = print_stacks.c get_input.c check_num.c make_alist.c get_next_line/get_next_line.c
+SOURCES = print_stacks.c ft_pb.c ft_sa.c get_input.c check_num.c make_alist.c make_blist.c get_next_line/get_next_line.c
 
-OBJECTS = print_stacks.o get_input.o check_num.o make_alist.o get_next_line.o
+OBJECTS = print_stacks.o ft_pb.o ft_sa.o get_input.o check_num.o make_alist.o make_blist.o get_next_line.o
 
 all: $(NAME)
 
