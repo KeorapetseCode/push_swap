@@ -9,17 +9,14 @@ void	pushto_b(STACK **a, STACK **b, STACK *head, STACK *b_head)
 	{
 		(*a) = head->next;
 		if (!(*a))
-		{
-			ft_putendl("Stack A Is EMpty!");
 			return ;
-		}
 	}
-	if ((*b))
+	if ((*b) != NULL)
 		(*b) = (*b)->next;
-	
+
 	make_blist(b, b_head, (*a)->num);
 	temp = (*a)->next;
-	free((*a));	
+	free((*a));
 	(*a) = temp;
 	head->next = temp;
 	free(temp);

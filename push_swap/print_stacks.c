@@ -12,33 +12,27 @@
 
 #include "push_swap.h"
 
-void	print_stacks(STACK **a, STACK **b, STACK *head, STACK *b_head)
+void	print_stacks(STACK **a, STACK **b, STACK *head)
 {
 	if (!(*a) || (*a)->next == NULL)
-	{
 		(*a) = head->next;
-		if (!(*a))
-		{
-			ft_putendl("Stack A Is mpty!");
-			return ;
-		}
-	}
-//	if ((*b) && (*b)->next == NULL)
-//		(*b) = b_head->next;
 	ft_putendl("\n__  __");
-	while ((*a))
+	while ((*a) != NULL || (*b) != NULL)
 	{
-		ft_putnbr((*a)->num);
+		if ((*a) != NULL)
+		{
+			ft_putnbr((*a)->num);
+			(*a) = (*a)->next;
+		}
 		ft_putstr("   ");
-		if ((*b))
+		if ((*b) != NULL)
 		{
 			ft_putnbr((*b)->num);
-			(*b) = (*b)->next;
+				(*b) = (*b)->next;
 		}
 		ft_putchar('\n');
-		(*a) = (*a)->next;
 	}
-	(*b) = b_head->next;
+	(*a) = head->next;
 	ft_putstr("\nA   B\n");
 	ft_putendl("--  --\n");
 }
