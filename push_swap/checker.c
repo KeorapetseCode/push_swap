@@ -18,11 +18,13 @@ int		main(int argc, char **argv)
 	STACK		*a;
 	STACK		*b;
 	STACK		head;
+	STACK		b_head;
 
 	counta = 1;
 	a = NULL;
 	b = NULL;
 	head.prev = &head;
+	b_head.prev = &b_head;
 	if (argc > 1)
 	{
 		while (counta < argc)
@@ -33,7 +35,7 @@ int		main(int argc, char **argv)
 				return (0);
 			counta++;
 		}
-		if (get_input(&a, &b, &head) == 0)
+		if (get_input(&a, &b, &head, &b_head) == 0)
 			return (0);
 	}
 	else

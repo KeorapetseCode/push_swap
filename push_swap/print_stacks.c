@@ -12,12 +12,12 @@
 
 #include "push_swap.h"
 
-void	print_stacks(STACK **a, STACK **b, STACK *head)
+void	print_stacks(STACK **a, STACK **b, STACK *head, STACK *b_head)
 {
 	if (!(*a) || (*a)->next == NULL)
 		(*a) = head->next;
 	ft_putendl("\n__  __");
-	while ((*a) != NULL || (*b) != NULL)
+	while ((*a))
 	{
 		if ((*a) != NULL)
 		{
@@ -33,6 +33,7 @@ void	print_stacks(STACK **a, STACK **b, STACK *head)
 		ft_putchar('\n');
 	}
 	(*a) = head->next;
+	(*b) = b_head->next;
 	ft_putstr("\nA   B\n");
 	ft_putendl("--  --\n");
 }
