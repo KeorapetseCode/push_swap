@@ -9,17 +9,17 @@ void	pushto_b(STACK **a, STACK **b, STACK *head, STACK *b_head)
 	if (!(*a) || (*a)->next == NULL)
 	{
 		(*a) = head->next;
+		temp_b = (*a);
 		if (!(*a))
 			return ;
 	}
-	if ((*b))
-	{
+	if ((*b) != NULL)
+	{	
 		make_blist(&temp_b, (*a)->num);
-		(*b)->next = temp_b;
 		temp_b->prev = (*b);
+		(*b)->next = temp_b;
 		(*b) = temp_b;
-		b_head->next = (*b);
-		free(temp_b);
+		temp_b = NULL;
 
 		temp = (*a)->next;
 		free((*a));
@@ -29,7 +29,7 @@ void	pushto_b(STACK **a, STACK **b, STACK *head, STACK *b_head)
 	else
 	{
 		make_blist(b, (*a)->num);
-		(*b)->prev = b_head;
+		(*b)->prev = NULL;
 		b_head->next = (*b);
 
 		temp = (*a)->next;
@@ -37,5 +37,4 @@ void	pushto_b(STACK **a, STACK **b, STACK *head, STACK *b_head)
 		(*a) = temp;
 		head->next = temp;
 	}
-//	(*b) = b_head->next;
 }
