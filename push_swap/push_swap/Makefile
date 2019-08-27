@@ -23,7 +23,7 @@ OBJECTS = print_stacks.o ft_pb.o ft_sa.o get_input.o check_num.o make_alist.o ma
 all: $(NAME)
 
 $(NAME):
-	$(CC) $(CFLAGS) -c $(SOURCES)
+	$(CC) -c $(SOURCES)
 	ar rc $(NAME) $(OBJECTS)
 	ranlib $(NAME)
 

@@ -34,5 +34,6 @@ void		make_blist(STACK **b, int num);
 
 //void		sort_first_two(STACK **b);
 void		pushto_b(STACK **a, STACK **b, STACK *head, STACK *b_head);
+void 		pushto_a(STACK **a, STACK **b, STACK *head, STACK *b_head);
 
 #endif

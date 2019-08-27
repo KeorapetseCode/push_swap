@@ -16,9 +16,7 @@ void	print_stacks(STACK **a, STACK **b, STACK *head, STACK *b_head)
 {
 	if (!(*a) || (*a)->next == NULL)
 		(*a) = head->next;
-//	if (!(*b) || (*b)->next == NULL)
-//		(*b) = b_head->next;
-	ft_putendl("\n__     __");
+	ft_putendl("\n__     ____");
 	while ((*a) || (*b))
 	{
 		if ((*a) != NULL)
@@ -35,7 +33,11 @@ void	print_stacks(STACK **a, STACK **b, STACK *head, STACK *b_head)
 		ft_putchar('\n');
 	}
 	(*a) = head->next;
-	(*b) = b_head->next;
+	if (!(*b))
+	{
+		(*b) = b_head->next;
+	//	while ()
+	}
 	ft_putstr("\nA      B\n");
 	ft_putendl("--    --\n");
 }

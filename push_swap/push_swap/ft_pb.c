@@ -9,7 +9,6 @@ void	pushto_b(STACK **a, STACK **b, STACK *head, STACK *b_head)
 	if (!(*a) || (*a)->next == NULL)
 	{
 		(*a) = head->next;
-		temp_b = (*a);
 		if (!(*a))
 			return ;
 	}
