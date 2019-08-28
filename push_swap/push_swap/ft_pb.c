@@ -13,27 +13,17 @@ void	pushto_b(STACK **a, STACK **b, STACK *head, STACK *b_head)
 			return ;
 	}
 	if ((*b) != NULL)
-	{	
-		make_blist(&temp_b, (*a)->num);
+	{
+		make_blist(a, &temp_b, &head);
 		temp_b->prev = (*b);
 		(*b)->next = temp_b;
 		(*b) = temp_b;
 		temp_b = NULL;
-
-		temp = (*a)->next;
-		free((*a));
-		(*a) = temp;
-		head->next = temp;
 	}
 	else
 	{
-		make_blist(b, (*a)->num);
+		make_blist(a, b, &head);
 		(*b)->prev = NULL;
 		b_head->next = (*b);
-
-		temp = (*a)->next;
-		free((*a));
-		(*a) = temp;
-		head->next = temp;
 	}
 }

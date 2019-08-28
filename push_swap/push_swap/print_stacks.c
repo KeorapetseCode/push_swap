@@ -28,16 +28,12 @@ void	print_stacks(STACK **a, STACK **b, STACK *head, STACK *b_head)
 		if ((*b) != NULL)
 		{
 			ft_putnbr((*b)->num);
-			(*b) = (*b)->prev;
+			(*b) = (*b)->next;
 		}
 		ft_putchar('\n');
 	}
 	(*a) = head->next;
-	if (!(*b))
-	{
-		(*b) = b_head->next;
-	//	while ()
-	}
+	(*b) = b_head->next;
 	ft_putstr("\nA      B\n");
 	ft_putendl("--    --\n");
 }

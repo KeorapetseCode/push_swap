@@ -30,7 +30,7 @@ void		print_stacks(STACK **a, STACK **b, STACK *head, STACK *b_head);
 void		sort_first_two(STACK **a, STACK *head);
 
 void		make_alist(STACK **a, STACK *head, char *str);
-void		make_blist(STACK **b, int num);
+void		make_blist(STACK **a, STACK **b, STACK **head);
 
 //void		sort_first_two(STACK **b);
 void		pushto_b(STACK **a, STACK **b, STACK *head, STACK *b_head);

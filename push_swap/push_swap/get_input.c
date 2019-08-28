@@ -25,7 +25,7 @@ int     get_input(STACK **a, STACK **b, STACK *head, STACK *b_head)
 			sort_first_two(a, head);
 
 		if (ft_strnstr(input, "pa", 2))
-			pushto_b(b, a, b_head, head);
+			pushto_a(b, a, b_head, head);
 
 		if (ft_strnstr(input, "pb", 2))
 			pushto_b(a, b, head, b_head);
