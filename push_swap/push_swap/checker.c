@@ -21,10 +21,9 @@ int		main(int argc, char **argv)
 	STACK		b_head;
 
 	counta = 1;
-	a = NULL;
 	b = NULL;
 	head.prev = &head;
-	b_head.prev = NULL;
+	b_head.next = NULL;
 	if (argc > 1)
 	{
 		while (counta < argc)
