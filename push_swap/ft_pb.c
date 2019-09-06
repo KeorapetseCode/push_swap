@@ -4,15 +4,15 @@
 void	pushto_b(STACK **a, STACK **b, STACK *head, STACK *b_head)
 {
 	STACK		*temp;
- 
-	if (((*a) && (*a)->next == NULL) || ((*a) == NULL && (*a)->prev))
-		(*a) = head->next;
 
-	if ((*a) == NULL)
+	if ((*a) == NULL && head->next == NULL)
 	{
 		ft_putstr("Nothing In Stack");
 		return ;
 	}
+	if (((*a) && (*a)->next == NULL) || ((*a) == NULL && (*a)->prev))
+		(*a) = head->next;
+
 	if ((*b) != NULL)
 	{
 		make_blist(a, &temp, &head);

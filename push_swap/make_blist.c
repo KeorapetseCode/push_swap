@@ -15,10 +15,18 @@
 void	make_blist(STACK **a, STACK **b, STACK **head)
 {
 	(*b) = (*a);
-	(*a) = (*a)->next;
+	if ((*a)->next != NULL)
+		(*a) = (*a)->next;
+	else
+		{
+			(*a) = NULL;
+			(*head)->next = NULL;
+		}
 	if ((*a) != NULL)
+	{
 		(*a)->prev = NULL;
-	(*head)->next = (*a);
+		(*head)->next = (*a);
+	}
 	(*b)->prev = NULL;
 	(*b)->next = NULL;
 }

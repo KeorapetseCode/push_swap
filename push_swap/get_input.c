@@ -35,15 +35,20 @@ int     get_input(STACK **a, STACK **b, STACK *head, STACK *b_head)
 		if (ft_strnstr(input, "ra", 2))
 			rotate_a(a, head);
 
-		if (ft_strnstr(input, "rb", 2))
-			rotate_b(b);
-
-		if (ft_strnstr(input, "rrb", 3))
-			reverse_rotate_b(b, b_head);
-
 		if (ft_strnstr(input, "rra", 3))
 			reverse_rotate_a(a, head);
 
+		if (ft_strnstr(input, "rb", 2))
+			rotate_b(b);
+	
+		if (ft_strnstr(input, "rrb", 3))
+			reverse_rotate_b(b, b_head);
+
+		if (ft_strnstr(input, "rrr", 3))
+			{
+				reverse_rotate_a(a, head);
+				reverse_rotate_b(b, b_head);
+			}
 		if (ft_strnstr(input, "pa", 2))
 			pushto_a(a, b, head, b_head);
 

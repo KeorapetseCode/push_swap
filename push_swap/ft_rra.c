@@ -25,9 +25,7 @@ void	reverse_rotate_a(STACK **a, STACK *head)
 		temp = (*a)->num;
 		(*a)->next->num = temp;
 		if ((*a)->prev == head || (*a)->prev == NULL)
-		{
-			(*a)->num = last_num;
 			break;
-		}
 	}
+	(*a)->num = last_num;
 }
