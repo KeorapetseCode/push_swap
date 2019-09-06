@@ -24,14 +24,31 @@ int     get_input(STACK **a, STACK **b, STACK *head, STACK *b_head)
 		if (ft_strnstr(input, "sa", 2))
 			sort_first_two(a, head);
 
+		if (ft_strnstr(input, "sb", 2))
+			sort_first_two_b(b, b_head);
+
+		if (ft_strnstr(input, "ss", 2))
+		{
+			sort_first_two(a, head);
+			sort_first_two_b(b, b_head);
+		}
+		if (ft_strnstr(input, "ra", 2))
+			rotate_a(a, head);
+
+		if (ft_strnstr(input, "rb", 2))
+			rotate_b(b);
+
+		if (ft_strnstr(input, "rrb", 3))
+			reverse_rotate_b(b, b_head);
+
+		if (ft_strnstr(input, "rra", 3))
+			reverse_rotate_a(a, head);
+
 		if (ft_strnstr(input, "pa", 2))
 			pushto_a(a, b, head, b_head);
 
 		if (ft_strnstr(input, "pb", 2))
 			pushto_b(a, b, head, b_head);
-
-		if ((ft_strnstr(input, "DONE", 4) || ft_strnstr(input, "done", 4)))
-			return (0);
     }
     return (0);
 }

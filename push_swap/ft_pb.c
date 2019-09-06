@@ -5,7 +5,7 @@ void	pushto_b(STACK **a, STACK **b, STACK *head, STACK *b_head)
 {
 	STACK		*temp;
  
-	if (((*a) && (*a)->next == NULL) || (*a) == NULL)
+	if (((*a) && (*a)->next == NULL) || ((*a) == NULL && (*a)->prev))
 		(*a) = head->next;
 
 	if ((*a) == NULL)
@@ -15,12 +15,15 @@ void	pushto_b(STACK **a, STACK **b, STACK *head, STACK *b_head)
 	}
 	if ((*b) != NULL)
 	{
-		make_blist(a, &temp, &head, &b_head);
+		make_blist(a, &temp, &head);
 		temp->prev = (*b);
 		(*b)->next = temp;
 		(*b) = temp;
 		temp = NULL;
 	}
 	else
-		make_blist(a, b, &head, &b_head);
+	{
+		make_blist(a, b, &head);
+		b_head->next = (*b);
+	}
 }

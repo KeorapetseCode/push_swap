@@ -27,13 +27,21 @@ typedef struct stack
 int			check_num(char *str);
 int			get_input(STACK **a, STACK **b, STACK *head, STACK *b_head);
 void		print_stacks(STACK **a, STACK **b, STACK *head, STACK *b_head);
+void		return_list(STACK **a, STACK **b, STACK **head, STACK **b_head);
+
 void		sort_first_two(STACK **a, STACK *head);
+void		sort_first_two_b(STACK **b, STACK *b_head);
 
 void		make_alist(STACK **a, STACK *head, char *str);
-void		make_blist(STACK **a, STACK **b, STACK **head, STACK **b_head);
+void		make_blist(STACK **a, STACK **b, STACK **head);
 
-//void		sort_first_two(STACK **b);
 void		pushto_b(STACK **a, STACK **b, STACK *head, STACK *b_head);
 void		pushto_a(STACK **a, STACK **b, STACK *head, STACK *b_head);
+
+void		rotate_a(STACK **a, STACK *head);
+void		reverse_rotate_a(STACK **a, STACK *head);
+
+void		rotate_b(STACK **b);
+void		reverse_rotate_b(STACK **b, STACK *b_head);
 
 #endif

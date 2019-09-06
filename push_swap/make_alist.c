@@ -1,5 +1,4 @@
 
-
 #include "push_swap.h"
 
 void	make_alist(STACK **a, STACK *head, char *str)

@@ -12,14 +12,13 @@
 
 #include "push_swap.h"
 
-void	make_blist(STACK **a, STACK **b, STACK **head, STACK **b_head)
+void	make_blist(STACK **a, STACK **b, STACK **head)
 {
 	(*b) = (*a);
 	(*a) = (*a)->next;
 	if ((*a) != NULL)
-		(*a)->prev = (*head);
+		(*a)->prev = NULL;
 	(*head)->next = (*a);
-	(*b_head)->next = (*b);
 	(*b)->prev = NULL;
 	(*b)->next = NULL;
 }

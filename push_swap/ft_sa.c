@@ -1,43 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   ft_sa.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kmpoloke <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/13 17:52:12 by kmpoloke          #+#    #+#             */
-/*   Updated: 2019/08/13 17:53:54 by kmpoloke         ###   ########.fr       */
+/*   Created: 2019/07/30 15:01:24 by kmpoloke          #+#    #+#             */
+/*   Updated: 2019/07/30 15:01:32 by kmpoloke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		main(int argc, char **argv)
+void	sort_first_two(STACK **a, STACK *head)
 {
-	int			counta;
-	STACK		*a;
-	STACK		*b;
-	STACK		head;
-	STACK		b_head;
-
-	counta = 1;
-	b = NULL;
-	head.prev = &head;
-	b_head.next = NULL;
-	if (argc > 1)
+	int		temp;
+	
+	if ((*a) == NULL || (*a)->next == NULL)
 	{
-		while (counta < argc)
+		(*a) = head->next;
+		if ((*a) == NULL)
 		{
-			if (check_num(argv[counta]))
-				make_alist(&a, &head, argv[counta]);
-			else
-				return (0);
-			counta++;
+			ft_putendl("Nothing In Stack A");
+			return ;
 		}
-		if (get_input(&a, &b, &head, &b_head) == 0)
-			return (0);
+		else if ((*a)->next == NULL)
+		{
+			ft_putendl("Only one structure found");	
+			return ;
+		}
 	}
-	else
-		ft_putendl("ERROR!\nNot enough arguments");
-	return (0);
+	if (((*a)->num) > ((*a)->next->num))
+		{
+			temp = (*a)->num;
+			(*a)->num = (*a)->next->num;
+			(*a)->next->num = temp;
+		}
 }
