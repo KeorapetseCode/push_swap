@@ -1,7 +1,7 @@
 
 #include "push_swap.h"
 
-void	return_list(STACK **a, STACK **b, STACK **head, STACK **b_head)
+void	return_list(STACK **a, STACK **b, STACK **head)
 {
 	(*a) = (*b);
 	if ((*b)->prev != NULL)
@@ -12,7 +12,6 @@ void	return_list(STACK **a, STACK **b, STACK **head, STACK **b_head)
 	else
 	{
 		(*b) = NULL;
-		(*b_head)->next = NULL;
 	}
 	(*head)->next = (*a);
 	(*a)->next = NULL;

@@ -1,7 +1,7 @@
 
 #include "push_swap.h"
 
-void    reverse_rotate_b(STACK **b, STACK *b_head)
+void    reverse_rotate_b(STACK **b)
 {
     int     temp;
     int     start_num;
@@ -11,8 +11,8 @@ void    reverse_rotate_b(STACK **b, STACK *b_head)
         ft_putendl("Nothing In B");
         return ;
     }
-    if ((*b) && (*b)->next == NULL)
-        (*b) = b_head->next;
+    while ((*b)->prev != NULL)
+        (*b) = (*b)->prev;
     if ((*b)->next == NULL && (*b)->prev == NULL)
     {
         ft_putendl("Only One node in the list");

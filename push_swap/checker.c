@@ -75,12 +75,13 @@ int		main(int argc, char **argv)
 	STACK		*a;
 	STACK		head;
 
+	a = NULL;
 	head.prev = &head;
 	head.next = NULL;
 	if (argc > 1)
 	{
 		init_list(&a, &head, argv);
-		if (get_input_a(&a, &head) == 0)
+		if (get_input(&a, &head) == 0)
 			return (0);
 	}
 	else

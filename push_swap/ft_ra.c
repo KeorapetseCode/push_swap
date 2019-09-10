@@ -1,7 +1,7 @@
 
 #include "push_swap.h"
 
-void	rotate_a(STACK **a, STACK **b, STACK *head, STACK *b_head)
+void	rotate_a(STACK **a, STACK **b, STACK *head)
 {
 	int		temp;
 	int		start_num;
@@ -21,5 +21,5 @@ void	rotate_a(STACK **a, STACK **b, STACK *head, STACK *b_head)
 			break;
 	}
 	(*a)->num = start_num;
-	ft_verify(a, b, head, b_head);
+	ft_verify(a, b, head);
 }

@@ -1,7 +1,7 @@
 
 #include "push_swap.h"
 
-void	pushto_b(STACK **a, STACK **b, STACK *head, STACK *b_head)
+void	pushto_b(STACK **a, STACK **b, STACK *head)
 {
 	STACK		*temp;
 
@@ -12,7 +12,6 @@ void	pushto_b(STACK **a, STACK **b, STACK *head, STACK *b_head)
 	}
 	if (((*a) && (*a)->next == NULL) || ((*a) == NULL && (*a)->prev))
 		(*a) = head->next;
-
 	if ((*b) != NULL)
 	{
 		make_blist(a, &temp, &head);
@@ -22,8 +21,5 @@ void	pushto_b(STACK **a, STACK **b, STACK *head, STACK *b_head)
 		temp = NULL;
 	}
 	else
-	{
 		make_blist(a, b, &head);
-		b_head->next = (*b);
-	}
 }

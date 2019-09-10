@@ -12,9 +12,9 @@
 
 #include "libft.h"
 
-int		ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {
-	int		returna;
+	long		returna;
 	int		neg;
 
 	returna = 0;

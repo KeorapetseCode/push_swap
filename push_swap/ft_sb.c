@@ -1,11 +1,11 @@
 
 #include "push_swap.h"
 
-void	sort_first_two_b(STACK **b, STACK *b_head)
+void	sort_first_two_b(STACK **b)
 {
 	int			temp;
 
-	if ((*b) == NULL && b_head->next == NULL)
+	if ((*b) == NULL && (*b)->prev == NULL && (*b)->next == NULL)
 	{
 		ft_putendl("Nothing In The STACK");
 		return ;
@@ -15,7 +15,7 @@ void	sort_first_two_b(STACK **b, STACK *b_head)
 	if ((*b)->next == NULL && (*b)->prev == NULL)
 		{
 			ft_putstr("Only One Node in List");
-			return ;
+			exit(0) ;
 		}
 	while ((*b) && (*b)->next != NULL)
 		(*b) = (*b)->next;

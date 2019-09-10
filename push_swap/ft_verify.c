@@ -3,9 +3,9 @@
 
 void 	check_dup(STACK **a, STACK *head);
 
-void	ft_verify(STACK **a, STACK **b, STACK *head, STACK *b_head)
+void	ft_verify(STACK **a, STACK **b, STACK *head)
 {
-	if (b_head->next == NULL && (*b) == NULL)
+	if ((*b) == NULL)
 	{
 		if (head->next)
 			(*a) = head->next;
