@@ -1,7 +1,7 @@
 
 #include "push_swap.h"
 
-void	rotate_a(STACK **a, STACK *head)
+void	rotate_a(STACK **a, STACK **b, STACK *head, STACK *b_head)
 {
 	int		temp;
 	int		start_num;
@@ -9,10 +9,7 @@ void	rotate_a(STACK **a, STACK *head)
 	if ((*a) && (*a)->next == NULL)
 		(*a) = head->next;
 	if ((*a)->next == NULL && (*a)->prev == head)
-		{
-			ft_putendl("Only One Node In The List!!");
-			return ;
-		}
+		return ;
 	(*a) = head->next;
 	start_num = (*a)->num;
 	while ((*a))
@@ -24,4 +21,5 @@ void	rotate_a(STACK **a, STACK *head)
 			break;
 	}
 	(*a)->num = start_num;
+	ft_verify(a, b, head, b_head);
 }

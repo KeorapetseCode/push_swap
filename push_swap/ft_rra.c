@@ -1,23 +1,17 @@
 
 #include "push_swap.h"
 
-void	reverse_rotate_a(STACK **a, STACK *head)
+void	reverse_rotate_a(STACK **a, STACK **b, STACK *head, STACK *b_head)
 {
 	int		temp;
 	int		last_num;
 
-	if ((*a) == NULL)
-	{
-		ft_putendl(" A is Null");
+	if ((*a) == NULL && head->next == NULL)
 		return ;
-	}
 	while ((*a) && (*a)->next != NULL)
 		(*a) = (*a)->next;
-	if ((*a) && (*a)->next == NULL && (*a)->prev == head)
-	{
-		ft_putendl("Only One Node In The List: Cannot rotate!!");
+	if (((*a) && (*a)->next == NULL) && ((*a)->prev == head))
 		return ;
-	}
 	last_num = (*a)->num;
 	while ((*a))
 	{
@@ -28,4 +22,5 @@ void	reverse_rotate_a(STACK **a, STACK *head)
 			break;
 	}
 	(*a)->num = last_num;
+	ft_verify(a, b, head, b_head);
 }

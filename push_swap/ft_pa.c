@@ -24,4 +24,5 @@ void	pushto_a(STACK **a, STACK **b, STACK *head, STACK *b_head)
 		(*a) = head->next;
 		temp = NULL;
 	}
+	ft_verify(a, b, head, b_head);
 }

@@ -24,6 +24,7 @@ void		rotate_b(STACK **b)
         if ((*b)->prev == NULL)
             break ;
     }
+    (*b)->num = last_num;
      while ((*b) && (*b)->next != NULL)
         (*b) = (*b)->next;
 }

@@ -19,7 +19,7 @@ void	sort_first_two_b(STACK **b, STACK *b_head)
 		}
 	while ((*b) && (*b)->next != NULL)
 		(*b) = (*b)->next;
-	if (((*b)->num) > ((*b)->prev->num))
+	if (((*b)->num) && ((*b)->prev->num))
 	{
 		temp = (*b)->num;
 		(*b)->num = (*b)->prev->num;
