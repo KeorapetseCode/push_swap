@@ -1,22 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_sb.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kmpoloke <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/09/14 09:46:15 by kmpoloke          #+#    #+#             */
+/*   Updated: 2019/09/14 09:46:20 by kmpoloke         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_first_two_b(STACK **b)
+void	sort_first_two_b(t_stack **b)
 {
-	int			temp;
+	int		temp;
 
 	if ((*b) == NULL && (*b)->prev == NULL && (*b)->next == NULL)
-	{
-		ft_putendl("Nothing In The STACK");
 		return ;
-	}
 	if ((*b) == NULL && (*b)->next)
 		(*b) = (*b)->next;
 	if ((*b)->next == NULL && (*b)->prev == NULL)
-		{
-			ft_putstr("Only One Node in List");
-			exit(0) ;
-		}
+		return ;
 	while ((*b) && (*b)->next != NULL)
 		(*b) = (*b)->next;
 	if (((*b)->num) && ((*b)->prev->num))

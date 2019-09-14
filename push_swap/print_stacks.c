@@ -12,24 +12,24 @@
 
 #include "push_swap.h"
 
-void	set_lastb(STACK *b_head, STACK **b)
+void	set_lastb(t_stack *b_head, t_stack **b)
 {
 	(*b) = b_head;
 	while ((*b) && (*b)->next != NULL)
 		(*b) = (*b)->next;
 }
 
-void	set_head(STACK **a, STACK *head)
+void	set_head(t_stack **a, t_stack *head)
 {
 	if (((*a) && (*a)->next == NULL) || (*a) == NULL)
 		(*a) = head->next;
 }
 
-void	print_stacks(STACK **a, STACK **b, STACK *head)
+void	print_t_stacks(t_stack **a, t_stack **b, t_stack *head)
 {
-	STACK	*b_head;
+	t_stack	*temp;
 
-	b_head = NULL;
+	temp = NULL;
 	set_head(a, head);
 	while ((*a) || (*b))
 	{
@@ -43,13 +43,13 @@ void	print_stacks(STACK **a, STACK **b, STACK *head)
 		{
 			ft_putnbr((*b)->num);
 			if ((*b)->prev == NULL)
-				b_head = (*b);
+				temp = (*b);
 			(*b) = (*b)->prev;
 		}
 		ft_putchar('\n');
 	}
-	if (b_head != NULL)
-		set_lastb(b_head, b);
+	if (temp != NULL)
+		set_lastb(temp, b);
 	(*a) = head->next;
 	ft_putendl("\nA      B\n--    --");
 }

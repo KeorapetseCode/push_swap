@@ -1,16 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_pa.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kmpoloke <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/09/14 16:11:27 by kmpoloke          #+#    #+#             */
+/*   Updated: 2019/09/14 16:11:31 by kmpoloke         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	pushto_a(STACK **a, STACK **b, STACK *head)
+void	pushto_a(t_stack **a, t_stack **b, t_stack *head)
 {
-    STACK		*temp;
+	t_stack		*temp;
 
-    if ((*b) == NULL)
-    {
-    	ft_putendl("Nothing In STACK");
-    	return ;
-    }
-	while ((*b) && (*b)->next != NULL)
+	temp = NULL;
+	if ((*b) == NULL)
+	{
+		return ;
+	}
+	while ((*b) != NULL && (*b)->next != NULL)
 		(*b) = (*b)->next;
 	if ((*a) == NULL && ((*b) && (*b)->next == NULL))
 		return_list(a, b, &head);
@@ -24,5 +35,4 @@ void	pushto_a(STACK **a, STACK **b, STACK *head)
 		(*a) = head->next;
 		temp = NULL;
 	}
-	ft_verify(a, b, head);
 }

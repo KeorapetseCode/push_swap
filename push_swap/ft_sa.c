@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	sort_first_two(STACK **a, STACK **b, STACK *head)
+void	sort_first_two(t_stack **a, t_stack *head)
 {
 	int		temp;
 
@@ -30,5 +30,4 @@ void	sort_first_two(STACK **a, STACK **b, STACK *head)
 		(*a)->num = (*a)->next->num;
 		(*a)->next->num = temp;
 	}
-	ft_verify(a, b, head);
 }

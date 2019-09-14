@@ -6,15 +6,15 @@
 /*   By: kmpoloke <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/18 13:02:26 by kmpoloke          #+#    #+#             */
-/*   Updated: 2019/06/28 11:54:01 by kmpoloke         ###   ########.fr       */
+/*   Updated: 2019/09/14 12:20:53 by kmpoloke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long	ft_atoi(const char *str)
+int		ft_atoi(const char *str)
 {
-	long		returna;
+	int		returna;
 	int		neg;
 
 	returna = 0;
