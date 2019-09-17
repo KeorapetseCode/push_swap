@@ -25,7 +25,7 @@ void	set_head(t_stack **a, t_stack *head)
 		(*a) = head->next;
 }
 
-void	print_t_stacks(t_stack **a, t_stack **b, t_stack *head)
+void	print_stacks(t_stack **a, t_stack **b, t_stack *head)
 {
 	t_stack	*temp;
 

@@ -43,7 +43,7 @@ int			search_space(char *str)
 	return (0);
 }
 
-void		init_list(stack **a, stack *head, char **str)
+void		init_list(t_stack **a, t_stack *head, char **str)
 {
 	int		i;
 	char	**new_str;
@@ -72,9 +72,9 @@ void		init_list(stack **a, stack *head, char **str)
 
 int			main(int argc, char **argv)
 {
-	stack		*a;
-	stack		*b;
-	stack		head;
+	t_stack		*a;
+	t_stack		*b;
+	t_stack		head;
 
 	a = NULL;
 	b = NULL;
