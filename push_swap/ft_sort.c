@@ -49,6 +49,6 @@ void		ft_sort_list(t_stack **a, t_stack **b, t_stack *head)
 	}
     else if (nodes == 5)
     {
-        five_nodes(a, b, head);
+    //    five_nodes(a, b, head);
     }
 }

@@ -18,14 +18,17 @@ void	first_node_small(t_stack **a, t_stack *head, int temp)
 	{
 		if ((temp < (*a)->num) && (temp < (*a)->next->num))
 			{
+                revrotate_a(a, head);
 				ft_putendl_fd("rra", 1);
 			}
 		else if ((temp > (*a)->num) && (temp < (*a)->next->num))
 		{
+            revrotate_a(a, head);
 			ft_putendl_fd("rra", 1);
+            sort_first_two(a, head);
 			ft_putendl_fd("sa", 1);
 		}
-	}	
+	}
 }
 
 void	three_nodes(t_stack **a, t_stack *head)
@@ -37,15 +40,19 @@ void	three_nodes(t_stack **a, t_stack *head)
 	{
 		if ((temp > (*a)->num) && (temp > (*a)->next->num))
 			{
+                sort_first_two(a, head);
 				ft_putendl_fd("sa", 1);
 			}
 		else if ((temp < (*a)->num) && (temp < (*a)->next->num))
 		{
+            sort_first_two(a, head);
 			ft_putendl_fd("sa", 1);
+            revrotate_a(a, head);
 			ft_putendl_fd("rra", 1);
 		}
-		else
+		else if ((temp < (*a)->num) && temp > ((*a)->next->num))
 		{
+            rotate_a(a, head);
 			ft_putendl_fd("ra", 1);
 		}
 	}

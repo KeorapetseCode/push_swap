@@ -44,7 +44,7 @@ void	ft_verify(t_stack **a, t_stack **b, t_stack *head)
 void	check_dup(t_stack **a, t_stack *head)
 {
 	(*a) = head->next;
-	while ((*a)->next)
+	while ((*a)->next != NULL)
 	{
 		if ((*a)->num == (*a)->next->num)
 		{

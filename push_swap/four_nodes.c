@@ -40,7 +40,7 @@ void 	push_to_brra(t_stack **a, t_stack **b, t_stack *head, int minim)
 		pushto_b(a, b, head);
 		ft_putendl_fd("pb", 1);
 	}
-	three_nodes_a(a, head);
+	three_nodes(a, head);
 	pushto_a(a, b, head);
 	ft_putendl_fd("pa", 1);
 }
@@ -54,7 +54,7 @@ void	push_to_bra(t_stack **a, t_stack **b, t_stack *head, int minim)
 	}
     pushto_b(a, b, head);
     ft_putendl_fd("pb", 1);
-    three_nodes_a(a, head);
+    three_nodes(a, head);
 	pushto_a(a, b, head);
 	ft_putendl_fd("pa", 1);
 }
