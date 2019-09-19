@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int			check_num(char *str)
+int		check_num(char *str)
 {
 	int		i;
 
@@ -21,8 +21,8 @@ int			check_num(char *str)
 	{
 		if (!(ft_isdigit(str[i])))
 		{
-			ft_putendl("Error!\nInput Not A Number");
-			exit(0);
+			ft_putendl_fd("Error", 2);
+		    exit(0);
 		}
 		i++;
 	}
@@ -86,6 +86,6 @@ int			main(int argc, char **argv)
 		ft_sort_list(&a, &b, &head);
 	}
 	else
-		ft_putendl_fd("ERROR!\nNot enough arguments", 2);
+		ft_putendl_fd("ERROR", 2);
 	return (0);
 }

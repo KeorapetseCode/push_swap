@@ -21,8 +21,8 @@ int		check_num(char *str)
 	{
 		if (!(ft_isdigit(str[i])))
 		{
-			ft_putendl("Error!\nInput Not A Number");
-			exit(0);
+			ft_putendl_fd("Error", 2);
+		    exit(0);
 		}
 		i++;
 	}
@@ -81,10 +81,12 @@ int		main(int argc, char **argv)
 	if (argc > 1)
 	{
 		init_list(&a, &head, argv);
+        a = head.next;
+        check_dup(&a, &head);
 		if (get_input(&a, &head) == 0)
 			return (0);
 	}
 	else
-		ft_putendl_fd("ERROR!\nNot enough arguments", 2);
+		ft_putendl_fd("ERROR", 2);
 	return (0);
 }

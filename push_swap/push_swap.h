@@ -29,6 +29,7 @@ int					get_input(t_stack **a, t_stack *head);
 long long			ft_atolong_long(const char *str);
 void				print_stacks(t_stack **a, t_stack **b, t_stack *head);
 void				return_list(t_stack **a, t_stack **b, t_stack **head);
+void                check_dup(t_stack **a, t_stack *head);
 
 void				sort_first_two(t_stack **a, t_stack *head);
 void				sort_first_two_b(t_stack **b);
