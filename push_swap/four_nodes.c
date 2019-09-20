@@ -6,21 +6,21 @@
 /*   By: kmpoloke <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/17 10:40:48 by kmpoloke          #+#    #+#             */
-/*   Updated: 2019/09/17 10:40:51 by kmpoloke         ###   ########.fr       */
+/*   Updated: 2019/09/20 09:11:45 by kmpoloke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		find_small_num(t_stack **a, t_stack *head)
+int			find_small_num(t_stack **a, t_stack *head)
 {
-	int i;
+	int		i;
 
 	(*a) = head->next;
 	i = (*a)->num;
 	while ((*a) != NULL)
 	{
-		if((*a)->num < i)
+		if ((*a)->num < i)
 			i = (*a)->num;
 		(*a) = (*a)->next;
 	}
@@ -28,7 +28,7 @@ int		find_small_num(t_stack **a, t_stack *head)
 	return (i);
 }
 
-void 	push_to_brra(t_stack **a, t_stack **b, t_stack *head, int minim)
+void		push_to_brra(t_stack **a, t_stack **b, t_stack *head, int minim)
 {
 	while ((*a)->num != minim)
 	{
@@ -45,21 +45,21 @@ void 	push_to_brra(t_stack **a, t_stack **b, t_stack *head, int minim)
 	ft_putendl_fd("pa", 1);
 }
 
-void	push_to_bra(t_stack **a, t_stack **b, t_stack *head, int minim)
+void		push_to_bra(t_stack **a, t_stack **b, t_stack *head, int minim)
 {
 	if ((*a)->num != minim)
 	{
-        rotate_a(a, head);
-        ft_putendl_fd("ra", 1);
+		rotate_a(a, head);
+		ft_putendl_fd("ra", 1);
 	}
-    pushto_b(a, b, head);
-    ft_putendl_fd("pb", 1);
-    three_nodes(a, head);
+	pushto_b(a, b, head);
+	ft_putendl_fd("pb", 1);
+	three_nodes(a, head);
 	pushto_a(a, b, head);
 	ft_putendl_fd("pa", 1);
 }
 
-void    four_nodes(t_stack **a, t_stack **b, t_stack *head)
+void		four_nodes(t_stack **a, t_stack **b, t_stack *head)
 {
 	int		pos;
 	int		small_num;

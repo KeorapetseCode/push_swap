@@ -55,7 +55,7 @@ int			get_input(t_stack **a, t_stack *head)
 	t_stack *b;
 
 	b = NULL;
-	while (get_next_line(0, &input))
+	while (get_next_line(1, &input))
 	{
 		if (ft_strnequ(input, "rra", 3))
 			revrotate_a(a, head);

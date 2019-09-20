@@ -6,15 +6,15 @@
 /*   By: kmpoloke <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/14 10:08:05 by kmpoloke          #+#    #+#             */
-/*   Updated: 2019/09/14 10:08:07 by kmpoloke         ###   ########.fr       */
+/*   Updated: 2019/09/20 08:59:41 by kmpoloke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		check_num(char *str)
+int				check_num(char *str)
 {
-	int		i;
+	int			i;
 
 	i = 0;
 	while (str[i] != '\0')
@@ -22,16 +22,16 @@ int		check_num(char *str)
 		if (!(ft_isdigit(str[i])))
 		{
 			ft_putendl_fd("Error", 2);
-		    exit(0);
+			exit(0);
 		}
 		i++;
 	}
 	return (1);
 }
 
-int			search_space(char *str)
+int				search_space(char *str)
 {
-	int		i;
+	int			i;
 
 	i = 0;
 	while (str[i] != '\0')
@@ -43,7 +43,17 @@ int			search_space(char *str)
 	return (0);
 }
 
-void		init_list(t_stack **a, t_stack *head, char **str)
+void    mult_str(char **str, int i, t_stack **a, t_stack *head)
+{
+		while (str[i])
+		{
+			if (check_num(str[i]))
+				make_alist(a, head, str[i]);
+			i++;
+		}
+}
+
+void	init_list(t_stack **a, t_stack *head, char **str)
 {
 	int		i;
 	char	**new_str;
@@ -57,20 +67,18 @@ void		init_list(t_stack **a, t_stack *head, char **str)
 		while (new_str[i])
 		{
 			if (check_num(new_str[i]))
+			{
 				make_alist(a, head, new_str[i]);
+				ft_strdel(new_str);
+			}
 			i++;
 		}
 	}
 	else
-		while (str[i])
-		{
-			if (check_num(str[i]))
-				make_alist(a, head, str[i]);
-			i++;
-		}
+		mult_str(str, i, a, head);
 }
 
-int			main(int argc, char **argv)
+int				main(int argc, char **argv)
 {
 	t_stack		*a;
 	t_stack		*b;

@@ -6,13 +6,13 @@
 /*   By: kmpoloke <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/17 17:01:56 by kmpoloke          #+#    #+#             */
-/*   Updated: 2019/09/17 17:01:58 by kmpoloke         ###   ########.fr       */
+/*   Updated: 2019/09/20 08:49:27 by kmpoloke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		find_smallest(t_stack **a, t_stack *head)
+int			find_smallest(t_stack **a, t_stack *head)
 {
 	int i;
 
@@ -20,7 +20,7 @@ int		find_smallest(t_stack **a, t_stack *head)
 	i = (*a)->num;
 	while ((*a) != NULL)
 	{
-		if((*a)->num < i)
+		if ((*a)->num < i)
 			i = (*a)->num;
 		(*a) = (*a)->next;
 	}
@@ -28,14 +28,14 @@ int		find_smallest(t_stack **a, t_stack *head)
 	return (i);
 }
 
-void    push_down(t_stack **a, t_stack **b, t_stack *head, int minim)
+void		push_down(t_stack **a, t_stack **b, t_stack *head, int minim)
 {
 	while ((*a)->num != minim)
 	{
 		revrotate_a(a, head);
 		ft_putendl_fd("rra", 1);
 	}
-    if ((*a)->num == minim)
+	if ((*a)->num == minim)
 	{
 		pushto_b(a, b, head);
 		ft_putendl_fd("pb", 1);
@@ -45,23 +45,23 @@ void    push_down(t_stack **a, t_stack **b, t_stack *head, int minim)
 	ft_putendl_fd("pa", 1);
 }
 
-void	push_up(t_stack **a, t_stack **b, t_stack *head, int minim)
+void		push_up(t_stack **a, t_stack **b, t_stack *head, int minim)
 {
 	if ((*a)->num != minim)
 	{
-        rotate_a(a, head);
-        ft_putendl_fd("ra", 1);
+		rotate_a(a, head);
+		ft_putendl_fd("ra", 1);
 	}
-    pushto_b(a, b, head);
-    ft_putendl_fd("pb", 1);
-    four_nodes(a, b, head);
-    pushto_a(a, b, head);
-    ft_putendl_fd("pa", 1);
+	pushto_b(a, b, head);
+	ft_putendl_fd("pb", 1);
+	four_nodes(a, b, head);
+	pushto_a(a, b, head);
+	ft_putendl_fd("pa", 1);
 }
 
-void    five_nodes(t_stack **a, t_stack **b, t_stack *head)
+void		five_nodes(t_stack **a, t_stack **b, t_stack *head)
 {
-    int		pos;
+	int		pos;
 	int		small_num;
 
 	pos = 1;

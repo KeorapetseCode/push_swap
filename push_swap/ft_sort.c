@@ -6,7 +6,7 @@
 /*   By: kmpoloke <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/14 10:33:59 by kmpoloke          #+#    #+#             */
-/*   Updated: 2019/09/14 10:34:04 by kmpoloke         ###   ########.fr       */
+/*   Updated: 2019/09/20 08:52:57 by kmpoloke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,10 @@ void		ft_sort_list(t_stack **a, t_stack **b, t_stack *head)
 	if (nodes == 2)
 	{
 		if (((*a)->num) > ((*a)->next->num))
-			ft_putendl_fd("sa", 1);
+		{
+			ft_putendl("sa");
+			sort_first_two(a, head);
+		}
 	}
 	else if (nodes == 3)
 	{
@@ -47,9 +50,9 @@ void		ft_sort_list(t_stack **a, t_stack **b, t_stack *head)
 		(*a) = head->next;
 		four_nodes(a, b, head);
 	}
-    else if (nodes == 5)
-    {
-        (*a) = head->next;
-        five_nodes(a, b, head);
-    }
+	else if (nodes == 5)
+	{
+		(*a) = head->next;
+		five_nodes(a, b, head);
+	}
 }

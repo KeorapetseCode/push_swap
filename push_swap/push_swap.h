@@ -6,7 +6,7 @@
 /*   By: kmpoloke <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/02 11:20:07 by kmpoloke          #+#    #+#             */
-/*   Updated: 2019/08/02 11:26:05 by kmpoloke         ###   ########.fr       */
+/*   Updated: 2019/09/20 09:14:16 by kmpoloke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int					get_input(t_stack **a, t_stack *head);
 long long			ft_atolong_long(const char *str);
 void				print_stacks(t_stack **a, t_stack **b, t_stack *head);
 void				return_list(t_stack **a, t_stack **b, t_stack **head);
-void                check_dup(t_stack **a, t_stack *head);
+void				check_dup(t_stack **a, t_stack *head);
 
 void				sort_first_two(t_stack **a, t_stack *head);
 void				sort_first_two_b(t_stack **b);
@@ -48,8 +48,7 @@ void				revrotate_b(t_stack **b);
 void				ft_verify(t_stack **a, t_stack **b, t_stack *head);
 void				ft_sort_list(t_stack **a, t_stack **b, t_stack *head);
 void				three_nodes(t_stack **a, t_stack *head);
-void				sort_blist(t_stack **b);
 void				four_nodes(t_stack **a, t_stack **b, t_stack *head);
-void                five_nodes(t_stack **a, t_stack **b, t_stack *head);
+void				five_nodes(t_stack **a, t_stack **b, t_stack *head);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: kmpoloke <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/13 17:52:12 by kmpoloke          #+#    #+#             */
-/*   Updated: 2019/09/14 08:59:41 by kmpoloke         ###   ########.fr       */
+/*   Updated: 2019/09/20 08:45:06 by kmpoloke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		check_num(char *str)
 		if (!(ft_isdigit(str[i])))
 		{
 			ft_putendl_fd("Error", 2);
-		    exit(0);
+			exit(0);
 		}
 		i++;
 	}
@@ -43,6 +43,16 @@ int		search_space(char *str)
 	return (0);
 }
 
+void    mult_str(char **str, int i, t_stack **a, t_stack *head)
+{
+		while (str[i])
+		{
+			if (check_num(str[i]))
+				make_alist(a, head, str[i]);
+			i++;
+		}
+}
+
 void	init_list(t_stack **a, t_stack *head, char **str)
 {
 	int		i;
@@ -57,17 +67,15 @@ void	init_list(t_stack **a, t_stack *head, char **str)
 		while (new_str[i])
 		{
 			if (check_num(new_str[i]))
+			{
 				make_alist(a, head, new_str[i]);
+				ft_strdel(new_str);
+			}
 			i++;
 		}
 	}
 	else
-		while (str[i])
-		{
-			if (check_num(str[i]))
-				make_alist(a, head, str[i]);
-			i++;
-		}
+		mult_str(str, i, a, head);
 }
 
 int		main(int argc, char **argv)
@@ -81,8 +89,8 @@ int		main(int argc, char **argv)
 	if (argc > 1)
 	{
 		init_list(&a, &head, argv);
-        a = head.next;
-        check_dup(&a, &head);
+		a = head.next;
+		check_dup(&a, &head);
 		if (get_input(&a, &head) == 0)
 			return (0);
 	}
