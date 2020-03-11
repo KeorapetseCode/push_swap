@@ -24,7 +24,7 @@ void	sort_first_two_b(t_stack **b)
 		return ;
 	while ((*b) && (*b)->next != NULL)
 		(*b) = (*b)->next;
-	if (((*b)->num) && ((*b)->prev->num))
+	if ((*b) && (*b)->prev)
 	{
 		temp = (*b)->num;
 		(*b)->num = (*b)->prev->num;

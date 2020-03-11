@@ -50,5 +50,22 @@ void				ft_sort_list(t_stack **a, t_stack **b, t_stack *head);
 void				three_nodes(t_stack **a, t_stack *head);
 void				four_nodes(t_stack **a, t_stack **b, t_stack *head);
 void				five_nodes(t_stack **a, t_stack **b, t_stack *head);
+void				two_nodes(t_stack **a, t_stack *head);
+void 				two_b_nodes(t_stack **b);
+
+void				mult_nodes(t_stack **a, t_stack **b, t_stack *head);
+int 				total_nodes(t_stack **a, t_stack *head);
+int 				total_b_nodes(t_stack **b, t_stack *b_head);
+
+int					*sorted_arr(int num_of_nodes, t_stack **a, t_stack *head);
+int					*sorted_b_arr(int num_of_nodes, t_stack **b, t_stack *b_head);
+int 				ceil_func(int i);
+void				push_back(t_stack **a, t_stack **b, t_stack *head);
+int					find_biggest(t_stack *b);
+void				send_to_a(t_stack **a, t_stack **b, t_stack *head);
+void				two_bnodes_left(t_stack **a, t_stack **b, t_stack *head);
+void				five_b_nodes(t_stack **a, t_stack **b, t_stack *head);
+void				four_b_nodes(t_stack **a, t_stack **b, t_stack *head);
+void				three_b_nodes(t_stack **a, t_stack **b, t_stack *head);
 
 #endif

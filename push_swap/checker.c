@@ -6,15 +6,15 @@
 /*   By: kmpoloke <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/13 17:52:12 by kmpoloke          #+#    #+#             */
-/*   Updated: 2019/09/20 08:45:06 by kmpoloke         ###   ########.fr       */
+/*   Updated: 2019/09/20 14:50:48 by kmpoloke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		check_num(char *str)
+int				check_num(char *str)
 {
-	int		i;
+	int			i;
 
 	i = 0;
 	while (str[i] != '\0')
@@ -29,9 +29,9 @@ int		check_num(char *str)
 	return (1);
 }
 
-int		search_space(char *str)
+int				search_space(char *str)
 {
-	int		i;
+	int			i;
 
 	i = 0;
 	while (str[i] != '\0')
@@ -43,20 +43,20 @@ int		search_space(char *str)
 	return (0);
 }
 
-void    mult_str(char **str, int i, t_stack **a, t_stack *head)
+void			mult_str(char **str, int i, t_stack **a, t_stack *head)
 {
-		while (str[i])
-		{
-			if (check_num(str[i]))
-				make_alist(a, head, str[i]);
-			i++;
-		}
+	while (str[i])
+	{
+		if (check_num(str[i]))
+			make_alist(a, head, str[i]);
+		i++;
+	}
 }
 
-void	init_list(t_stack **a, t_stack *head, char **str)
+void			init_list(t_stack **a, t_stack *head, char **str)
 {
-	int		i;
-	char	**new_str;
+	int			i;
+	char		**new_str;
 
 	i = 1;
 	new_str = NULL;
@@ -78,7 +78,7 @@ void	init_list(t_stack **a, t_stack *head, char **str)
 		mult_str(str, i, a, head);
 }
 
-int		main(int argc, char **argv)
+int				main(int argc, char **argv)
 {
 	t_stack		*a;
 	t_stack		head;

@@ -6,7 +6,7 @@
 /*   By: kmpoloke <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/14 10:08:05 by kmpoloke          #+#    #+#             */
-/*   Updated: 2019/09/20 08:59:41 by kmpoloke         ###   ########.fr       */
+/*   Updated: 2019/09/20 15:19:58 by kmpoloke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,20 +43,20 @@ int				search_space(char *str)
 	return (0);
 }
 
-void    mult_str(char **str, int i, t_stack **a, t_stack *head)
+void			mult_str(char **str, int i, t_stack **a, t_stack *head)
 {
-		while (str[i])
-		{
-			if (check_num(str[i]))
-				make_alist(a, head, str[i]);
-			i++;
-		}
+	while (str[i])
+	{
+		if (check_num(str[i]))
+			make_alist(a, head, str[i]);
+		i++;
+	}
 }
 
-void	init_list(t_stack **a, t_stack *head, char **str)
+void			init_list(t_stack **a, t_stack *head, char **str)
 {
-	int		i;
-	char	**new_str;
+	int			i;
+	char		**new_str;
 
 	i = 1;
 	new_str = NULL;

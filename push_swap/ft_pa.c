@@ -16,11 +16,9 @@ void	pushto_a(t_stack **a, t_stack **b, t_stack *head)
 {
 	t_stack		*temp;
 
-	temp = NULL;
+	//temp = NULL;
 	if ((*b) == NULL)
-	{
 		return ;
-	}
 	while ((*b) != NULL && (*b)->next != NULL)
 		(*b) = (*b)->next;
 	if ((*a) == NULL && ((*b) && (*b)->next == NULL))

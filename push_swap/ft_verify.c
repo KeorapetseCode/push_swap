@@ -6,7 +6,7 @@
 /*   By: kmpoloke <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/14 15:57:15 by kmpoloke          #+#    #+#             */
-/*   Updated: 2019/09/20 08:56:41 by kmpoloke         ###   ########.fr       */
+/*   Updated: 2019/09/20 14:51:48 by kmpoloke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ void	ft_verify(t_stack **a, t_stack **b, t_stack *head)
 				exit(0);
 			}
 		}
+		if ((*a)->next == NULL)
+			ft_putendl_fd("OK", 1);
 	}
 	else
 	{

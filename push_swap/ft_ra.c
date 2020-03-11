@@ -17,21 +17,22 @@ void		rotate_a(t_stack **a, t_stack *head)
 	int		temp;
 	int		start_num;
 
-	if ((*a) && (*a)->next == NULL)
+	if ((*a) != NULL && (*a)->next == NULL)
 		(*a) = head->next;
 	if ((*a)->next == NULL && (*a)->prev == head)
 		return ;
-	if ((*a)->next == NULL && (*a)->prev == NULL)
+	else if ((*a)->next == NULL && (*a)->prev == NULL)
 		return ;
 	(*a) = head->next;
 	start_num = (*a)->num;
-	while ((*a))
+	while ((*a)->next != NULL)
 	{
 		(*a) = (*a)->next;
 		temp = (*a)->num;
 		(*a)->prev->num = temp;
-		if ((*a)->next == NULL)
-			break ;
+	//	if ((*a)->next == NULL)
+	//		break ;
 	}
 	(*a)->num = start_num;
+	(*a) = head->next;
 }
