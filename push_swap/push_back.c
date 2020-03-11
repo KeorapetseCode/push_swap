@@ -34,78 +34,34 @@ void 	search_b_top(t_stack **a, t_stack **b, t_stack *head, int mid)
 	rb = 0;
 	b_head.prev = (*b);
 	b_head.next = NULL;
-
 	if ((total_b_nodes(b, &b_head) % 2) == 0)
 	    i = (total_b_nodes(b, &b_head) / 6);
 	else
-		i = ceil_func((total_b_nodes(b, &b_head) / 6));
-
-//	i = (total_b_nodes(b, &b_head) - mid);
-/*
-	ft_putstr("Total Nodes at B ");
-	ft_putnbr(total_b_nodes(b, &b_head));
-	ft_putstr("\nAmount That Is supposed to be sent ");
-	ft_putnbr(i);
-	ft_putstr("\n");
-	ft_putstr("My mid point value is ");
-	ft_putnbr(mid);
-	ft_putstr("\n\n");
-	print_stacks(a, b, head);
-	ft_putchar('\n');
-*/	
+		i = ceil_func((total_b_nodes(b, &b_head) / 6));	
 	while (i > 0)
 	{
 		if ((*b)->num > mid)
 		{
 			if (if_biggest((*b), (*b)->num))
 			{	
-				send_to_a(a, b, head);
-				b_head.prev = (*b); 
-				i--;
-				two_nodes(a, head);
+				to_a(a, b, head, &i);
 				while (rb)
 				{
-					revrotate_b(b);
-					ft_putendl_fd("rrb", 1);
+					rotate_backwards_b(b, &rb);
 					if (if_biggest((*b), (*b)->num))
-					{
-						send_to_a(a, b, head);
-						b_head.prev = (*b); 
-						i--;
-						two_nodes(a, head);
-					}
-					rb--;
+						to_a(a, b, head, &i);
 				}
-				b_head.prev = (*b);
 			}
 			else if (if_biggest((*b), (*b)->prev->num))
-			{
-				sort_first_two_b(b);
-				ft_putendl_fd("sb", 1);
-				b_head.prev = (*b);
-			}
+				sort_two_b(b);
 			else
-			{
-				rotate_b(b);
-				ft_putendl_fd("rb", 1);
-				b_head.prev = (*b);
-				rb++;
-			}
+				rotate_forward_b(b, &rb);
 		}
 		else if ((*b)->num <= mid)
-		{
-			rotate_b(b);
-			ft_putendl_fd("rb", 1);
-			b_head.prev = (*b);
-			rb++;
-		}
+			rotate_forward_b(b, &rb);
 	}
 	while (rb)
-	{
-		revrotate_b(b);
-		ft_putendl_fd("rrb", 1);
-		rb--;
-	}
+		rotate_backwards_b(b, &rb);
 	push_back(a, b, head);
 }
 

@@ -29,12 +29,6 @@ void	push_br_up(t_stack **a, t_stack **b, t_stack *head, int maxim)
 
 void	four_b_nodes(t_stack **a, t_stack **b, t_stack *head)
 {
-	/*
-	ft_putstr("\n");
-	ft_putstr("Now in Four\n");
-	print_stacks(a, b, head);
-	ft_putstr("\n\n");
-*/
 	t_stack 	temp;
 	int 		pos;
 	int 		big_num;

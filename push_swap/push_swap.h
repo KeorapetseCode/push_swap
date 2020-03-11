@@ -67,5 +67,15 @@ void				two_bnodes_left(t_stack **a, t_stack **b, t_stack *head);
 void				five_b_nodes(t_stack **a, t_stack **b, t_stack *head);
 void				four_b_nodes(t_stack **a, t_stack **b, t_stack *head);
 void				three_b_nodes(t_stack **a, t_stack **b, t_stack *head);
+void				rotate_backwards_b(t_stack **b, int *rb);
+void 				rotate_forward_b(t_stack **b, int *rb);
+void 				sort_two_b(t_stack **b);
+
+void 				to_a(t_stack **a, t_stack **b, t_stack *head, int *i);
+void 				to_b(t_stack **a, t_stack **b, t_stack *head, int *i);
+
+void 				to_b(t_stack **a, t_stack **b, t_stack *head, int *i);
+void 				rotate_backwards_a(t_stack **a, t_stack *head);
+void 				rotate_forward_a(t_stack **a, t_stack *head);
 
 #endif

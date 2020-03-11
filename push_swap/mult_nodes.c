@@ -27,26 +27,17 @@ void 		search_top(t_stack **a, t_stack **b, t_stack *head, int mid)
 	while (i > 0)
 	{
 		if ((*a)->num < mid)
-		{
-			pushto_b(a, b, head);
-			ft_putendl_fd("pb", 1);
-			two_b_nodes(b);
-			i--;
-		}
+			to_b(a, b, head, &i);
 		else
 		{
 			goto_last(a, head);
 			if ((*a)->num < mid)
 			{
 				(*a) = head->next;
-				revrotate_a(a, head);
-				ft_putendl_fd("rra", 1);
+				rotate_backwards_a(a, head);
 			}
 			else
-			{
-				rotate_a(a, head);
-				ft_putendl_fd("ra", 1);
-			}
+				rotate_forward_a(a, head);
 		}
 	}
 	mult_nodes(a, b, head);

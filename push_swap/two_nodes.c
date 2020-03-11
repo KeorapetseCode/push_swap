@@ -30,11 +30,6 @@ void 	send_to_a(t_stack **a, t_stack **b, t_stack *head)
 
 void 	two_bnodes_left(t_stack **a, t_stack **b, t_stack *head)
 {
-//	ft_putstr("\n");
-//	ft_putstr("Now in Two\n");
-//	print_stacks(a, b, head);
-//	ft_putstr("\n\n");
-
 	if ((*b) && (*b)->prev)
 	{
 		if ((*b)->num >= (*b)->prev->num)
@@ -50,10 +45,4 @@ void 	two_bnodes_left(t_stack **a, t_stack **b, t_stack *head)
 			send_to_a(a, b, head);
 		}
 	}
-/*	
-	ft_putstr("\n");
-	ft_putstr("Now in Last\n");
-	print_stacks(a, b, head);
-	ft_putstr("\n\n");
-*/
 }
