@@ -27,7 +27,11 @@ void		ft_command_b(t_stack **a, t_stack **b, t_stack *head, char *input)
 	}
 	else
 	{
-		ft_putendl("\n*********Ubhale Amasimba********");
+		ft_putendl("Error");
+		free((*a));
+		free((*b));
+		(*a) = NULL;
+		(*b) = NULL;
 		exit(0);
 	}
 }

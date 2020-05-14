@@ -35,7 +35,7 @@ int 		*sorted_arr(int num_of_nodes, t_stack **a, t_stack *head){
 
 	i = 0;
 	(*a) = head->next;
-	ret = (int*)malloc((sizeof(int) * num_of_nodes) + 1);
+	ret = (int*)malloc((sizeof(int) * num_of_nodes) + sizeof(int));
 	while (i < num_of_nodes)
 	{
 		ret[i] = (*a)->num;

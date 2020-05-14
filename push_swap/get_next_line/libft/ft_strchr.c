@@ -15,10 +15,8 @@
 char	*ft_strchr(const char *s, int c)
 {
 	int		counta;
-	char	new_c;
 
 	counta = 0;
-	new_c = (char)c;
 	if (c == 0)
 	{
 		while (s[counta] != '\0')

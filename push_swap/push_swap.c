@@ -21,7 +21,7 @@ int				check_num(char *str)
 	{
 		if (!(ft_isdigit(str[i])))
 		{
-			ft_putendl_fd("Error", 2);
+			ft_putendl("Error");
 			exit(0);
 		}
 		i++;
@@ -69,10 +69,12 @@ void			init_list(t_stack **a, t_stack *head, char **str)
 			if (check_num(new_str[i]))
 			{
 				make_alist(a, head, new_str[i]);
-				ft_strdel(new_str);
+				free(new_str);
+				new_str = NULL;
 			}
 			i++;
 		}
+		new_str = NULL;
 	}
 	else
 		mult_str(str, i, a, head);
@@ -91,9 +93,11 @@ int				main(int argc, char **argv)
 	if (argc > 1)
 	{
 		init_list(&a, &head, argv);
+		a = head.next;
+		check_dup(&a, &head);
 		ft_sort_list(&a, &b, &head);
 	}
 	else
-		ft_putendl_fd("ERROR", 2);
+		ft_putendl("Error");
 	return (0);
 }

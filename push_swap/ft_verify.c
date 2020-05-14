@@ -24,16 +24,16 @@ void	ft_verify(t_stack **a, t_stack **b, t_stack *head)
 				(*a) = (*a)->next;
 			else
 			{
-				ft_putendl_fd("KO", 2);
+				ft_putendl("KO");
 				exit(0);
 			}
 		}
 		if ((*a)->next == NULL)
-			ft_putendl_fd("OK", 1);
+			ft_putendl("OK");
 	}
 	else
 	{
-		ft_putendl_fd("KO", 2);
+		ft_putendl("KO");
 		exit(0);
 	}
 }

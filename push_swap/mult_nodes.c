@@ -12,20 +12,14 @@ void 		search_top(t_stack **a, t_stack **b, t_stack *head, int mid)
 	int 	i;
 
 	i = (total_nodes(a, head) / 6);
-/*
-	ft_putstr("Total Nodes at A ");
-	ft_putnbr(total_nodes(a, head));
-	ft_putstr("\nAmount That Is supposed to be sent ");
-	ft_putnbr(i);
-	ft_putstr("\n");
-	ft_putstr("My mid point value is ");
-	ft_putnbr(mid);
-	ft_putstr("\n\n");
-	print_stacks(a, b, head);
-	ft_putstr("\n");
-*/
 	while (i > 0)
 	{
+		ft_putchar('\n');
+		print_stacks(a, b, head);
+		ft_putchar('\n');
+		ft_putstr("mid = ");
+		ft_putnbr(mid);
+		ft_putchar('\n');
 		if ((*a)->num < mid)
 			to_b(a, b, head, &i);
 		else
@@ -58,14 +52,5 @@ void		mult_nodes(t_stack **a, t_stack **b, t_stack *head)
 		search_top(a, b, head, mid_index);
 	else if (total_nodes(a, head) == 5)
 		five_nodes(a, b, head);
-//	else if (total_nodes(a, head) == 4)
-//		four_nodes(a, b, head);
-/*	else if (total_nodes(a, head) == 3)
-		three_nodes(a, head);
-	else if (total_nodes(a, head) == 2)
-		two_nodes(a, head);
-*/
-//	print_stacks(a, b, head);
-//	exit(0);
 	push_back(a, b, head);
 }

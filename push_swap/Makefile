@@ -23,19 +23,19 @@ OBJECTS = shortcut_a.o shortcut_b.o three_bnodes.o four_bnodes.o five_bnodes.o f
 all: $(NAME)
 
 $(NAME):
-	make -C libft
+#	make -C get_next_line/libft
 	$(CC) $(SOURCES) -c
 	ar rc $(NAME) $(OBJECTS)
 	ranlib $(NAME)
-	$(CC) checker.c $(NAME) libft/libft.a -o checker 
-	$(CC) push_swap.c $(NAME) libft/libft.a -o push_swap
+	$(CC) checker.c $(NAME) get_next_line/libft/libft.a -o checker
+	$(CC) push_swap.c $(NAME) get_next_line/libft/libft.a -o push_swap
 
 clean:
-#	make clean -C libft
+#	make clean -C get_next_line/libft
 	/bin/rm -f $(OBJECTS)
 
 fclean: clean
-#	make fclean -C libft
+#	make fclean -C get_next_line/libft
 	/bin/rm -f $(NAME)
 
 re: fclean all

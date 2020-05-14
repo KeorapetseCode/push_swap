@@ -21,7 +21,7 @@ int				check_num(char *str)
 	{
 		if (!(ft_isdigit(str[i])))
 		{
-			ft_putendl_fd("Error", 2);
+			ft_putendl("Error");
 			exit(0);
 		}
 		i++;
@@ -92,9 +92,13 @@ int				main(int argc, char **argv)
 		a = head.next;
 		check_dup(&a, &head);
 		if (get_input(&a, &head) == 0)
+		{
+			free(a);
+			a = NULL;
 			return (0);
+		}
 	}
 	else
-		ft_putendl_fd("ERROR", 2);
+		ft_putendl("Error");
 	return (0);
 }
