@@ -35,11 +35,13 @@ int		*sorted_b_arr(int num_of_nodes, t_stack **b, t_stack *b_head)
 
 	i = 0;
 	(*b) = b_head->prev;
-	ret = (int*)malloc((sizeof(int) * num_of_nodes) + sizeof(int) * 1);
+	ret = (int*)malloc((sizeof(int) * num_of_nodes) + sizeof(int));
 	while (i < num_of_nodes)
 	{
 		ret[i] = (*b)->num;
 		i++;
+		if ((*b)->prev == NULL)
+			break ;
 		(*b) = (*b)->prev;
 	}
 	(*b) = b_head->prev;

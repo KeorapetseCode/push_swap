@@ -22,6 +22,8 @@ int			find_small_num(t_stack **a, t_stack *head)
 	{
 		if ((*a)->num < i)
 			i = (*a)->num;
+		if ((*a)->next == NULL)
+			break ;
 		(*a) = (*a)->next;
 	}
 	(*a) = head->next;
@@ -70,8 +72,10 @@ void		four_nodes(t_stack **a, t_stack **b, t_stack *head)
 	{
 		if ((*a)->num == small_num)
 			break ;
-		(*a) = (*a)->next;
 		pos++;
+		if ((*a)->next == NULL)
+			break ;
+		(*a) = (*a)->next;
 	}
 	(*a) = head->next;
 	if (pos == 1 || pos == 2)

@@ -74,10 +74,13 @@ void	push_back(t_stack **a, t_stack **b, t_stack *head)
 	
 	b_head.prev = (*b);
 	b_head.next = NULL;
-	s = sorted_b_arr(total_b_nodes(b, &b_head), b, &b_head);
-	half = ((total_b_nodes(b, &b_head)) / 6);
-	mid_index_val = s[half-1];
-	free(s);
+	if ((total_b_nodes(b, &b_head) > 5))
+	{
+		s = sorted_b_arr(total_b_nodes(b, &b_head), b, &b_head);
+		half = ((total_b_nodes(b, &b_head)) / 6);
+		mid_index_val = s[half-1];
+		free(s);
+	}
 	if (total_b_nodes(b, &b_head) > 5)
 		search_b_top(a, b, head, mid_index_val);
 	else if (total_b_nodes(b, &b_head) == 5)

@@ -13,13 +13,16 @@ void 		search_top(t_stack **a, t_stack **b, t_stack *head, int mid)
 
 	i = (total_nodes(a, head) / 6);
 	while (i > 0)
-	{
+	{/*
 		ft_putchar('\n');
 		print_stacks(a, b, head);
 		ft_putchar('\n');
 		ft_putstr("mid = ");
 		ft_putnbr(mid);
 		ft_putchar('\n');
+		ft_putstr("i = ");
+		ft_putnbr(i);
+		ft_putchar('\n');*/
 		if ((*a)->num < mid)
 			to_b(a, b, head, &i);
 		else
