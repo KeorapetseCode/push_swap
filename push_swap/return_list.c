@@ -21,8 +21,9 @@ void	return_list(t_stack **a, t_stack **b, t_stack **head)
 		(*b)->next = NULL;
 	}
 	else
+	{
 		(*b) = NULL;
-
+	}
 	(*head)->next = (*a);
 	(*a)->next = NULL;
 	(*a)->prev = NULL;

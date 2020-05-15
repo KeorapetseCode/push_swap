@@ -59,6 +59,7 @@ void		push_to_bra(t_stack **a, t_stack **b, t_stack *head, int minim)
 	three_nodes(a, head);
 	pushto_a(a, b, head);
 	ft_putendl_fd("pa", 1);
+	
 }
 
 void		four_nodes(t_stack **a, t_stack **b, t_stack *head)

@@ -95,9 +95,11 @@ int				main(int argc, char **argv)
 		init_list(&a, &head, argv);
 		a = head.next;
 		check_dup(&a, &head);
+		a = head.next;
+		before_sort(&a, &b, &head);	
 		ft_sort_list(&a, &b, &head);
 	}
 	else
-		ft_putendl("Error");
+		ft_putendl_fd("Error", 2);
 	return (0);
 }

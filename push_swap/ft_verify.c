@@ -12,6 +12,35 @@
 
 #include "push_swap.h"
 
+void	before_sort(t_stack **a, t_stack **b, t_stack *head)
+{
+	if ((*b) == NULL)
+	{
+		if (head->next)
+			(*a) = head->next;
+		while ((*a)->next)
+		{
+			if ((*a)->num < (*a)->next->num)
+				(*a) = (*a)->next;
+			else
+			{
+				(*a) = head->next;
+				return ;
+			}
+		}
+		if ((*a)->next == NULL)
+		{
+			free((*a));
+			free((*b));
+			(*a) = NULL;
+			(*b) =NULL;
+			exit(0);
+		}
+	}
+	else
+		return ;
+}
+
 void	ft_verify(t_stack **a, t_stack **b, t_stack *head)
 {
 	if ((*b) == NULL)

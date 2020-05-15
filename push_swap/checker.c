@@ -21,7 +21,7 @@ int				check_num(char *str)
 	{
 		if (!(ft_isdigit(str[i])))
 		{
-			ft_putendl("Error");
+			ft_putendl_fd("Error", 2);
 			exit(0);
 		}
 		i++;
@@ -99,6 +99,6 @@ int				main(int argc, char **argv)
 		}
 	}
 	else
-		ft_putendl("Error");
+		ft_putendl_fd("Error", 2);
 	return (0);
 }

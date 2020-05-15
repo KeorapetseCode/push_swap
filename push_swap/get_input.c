@@ -27,7 +27,7 @@ void		ft_command_b(t_stack **a, t_stack **b, t_stack *head, char *input)
 	}
 	else
 	{
-		ft_putendl("Error");
+		ft_putendl_fd("Error", 2);
 		free((*a));
 		free((*b));
 		(*a) = NULL;

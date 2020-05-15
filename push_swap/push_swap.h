@@ -44,6 +44,8 @@ void				rotate_b(t_stack **b);
 void				revrotate_a(t_stack **a, t_stack *head);
 void				revrotate_b(t_stack **b);
 void				ft_verify(t_stack **a, t_stack **b, t_stack *head);
+void				before_sort(t_stack **a, t_stack **b, t_stack *head);
+
 void				ft_sort_list(t_stack **a, t_stack **b, t_stack *head);
 void				three_nodes(t_stack **a, t_stack *head);
 void				four_nodes(t_stack **a, t_stack **b, t_stack *head);

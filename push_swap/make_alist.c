@@ -18,13 +18,13 @@ void		make_alist(t_stack **a, t_stack *head, char *str)
 
 	if (!((*a) = (t_stack*)malloc(sizeof(t_stack))))
 	{
-		ft_putendl("Error");
+		ft_putendl_fd("Error", 2);
 		exit(0);
 	}
 	temp = ft_atolong_long(str);
 	if (temp > 2147483647)
 	{
-		ft_putendl("Error");
+		ft_putendl_fd("Error", 2);
 		exit(0);
 	}
 	else

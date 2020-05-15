@@ -44,5 +44,6 @@ void 	two_bnodes_left(t_stack **a, t_stack **b, t_stack *head)
 			send_to_a(a, b, head);
 			send_to_a(a, b, head);
 		}
+		free((*b));
 	}
 }
