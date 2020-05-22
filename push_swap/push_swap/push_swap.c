@@ -3,103 +3,52 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kmpoloke <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lshabang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/14 10:08:05 by kmpoloke          #+#    #+#             */
-/*   Updated: 2019/09/20 15:19:58 by kmpoloke         ###   ########.fr       */
+/*   Created: 2019/08/28 16:15:28 by lshabang          #+#    #+#             */
+/*   Updated: 2019/09/22 14:58:19 by lshabang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int				check_num(char *str)
+void		launch(t_lst *stack_a, t_lst *stack_b)
 {
-	int			i;
+	int		len;
+	int		half;
 
-	i = 0;
-	while (str[i] != '\0')
+	len = ls_countlist(stack_a);
+	lst_index(stack_a);
+	if (len > 99)
 	{
-		if (!(ft_isdigit(str[i])))
+		half = len * 0.20;
+		while (ls_countlist(stack_a) > half)
 		{
-			ft_putendl("Error");
-			exit(0);
+			ls_push(&stack_b, &stack_a);
+			ft_putendl("pb");
 		}
-		i++;
-	}
-	return (1);
-}
-
-int				search_space(char *str)
-{
-	int			i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] == ' ')
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
-void			mult_str(char **str, int i, t_stack **a, t_stack *head)
-{
-	while (str[i])
-	{
-		if (check_num(str[i]))
-			make_alist(a, head, str[i]);
-		i++;
-	}
-}
-
-void			init_list(t_stack **a, t_stack *head, char **str)
-{
-	int			i;
-	char		**new_str;
-
-	i = 1;
-	new_str = NULL;
-	if (search_space(str[1]))
-	{
-		i = 0;
-		new_str = ft_strsplit(str[1], ' ');
-		while (new_str[i])
-		{
-			if (check_num(new_str[i]))
-			{
-				make_alist(a, head, new_str[i]);
-				free(new_str);
-				new_str = NULL;
-			}
-			i++;
-		}
-		new_str = NULL;
+		lst_index2(stack_a);
+		taketotop(&stack_a);
+		find_next(&stack_a);
+		return_nums(&stack_a, &stack_b, len);
+		ls_print(stack_a);
 	}
 	else
-		mult_str(str, i, a, head);
+		command(&stack_a, &stack_b);
 }
 
-int				main(int argc, char **argv)
+int			main(int argc, char *argv[])
 {
-	t_stack		*a;
-	t_stack		*b;
-	t_stack		head;
+	t_lst	*stack_b;
+	t_lst	*stack_a;
 
-	a = NULL;
-	b = NULL;
-	head.prev = &head;
-	head.next = NULL;
-	if (argc > 1)
-	{
-		init_list(&a, &head, argv);
-		a = head.next;
-		check_dup(&a, &head);
-		a = head.next;
-		before_sort(&a, &b, &head);	
-		ft_sort_list(&a, &b, &head);
-	}
-	else
-		ft_putendl_fd("Error", 2);
+	stack_b = NULL;
+	stack_a = NULL;
+	if (argc < 2)
+		return (0);
+	else if (argc > 2)
+		ls_isnum(argc, argv);
+	stack_a = ls_stack(argc, argv);
+	launch(stack_a, stack_b);
 	return (0);
 }

@@ -3,102 +3,91 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kmpoloke <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lshabang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/13 17:52:12 by kmpoloke          #+#    #+#             */
-/*   Updated: 2019/09/20 14:50:48 by kmpoloke         ###   ########.fr       */
+/*   Created: 2019/08/28 13:15:11 by lshabang          #+#    #+#             */
+/*   Updated: 2019/09/22 15:07:40 by lshabang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int				check_num(char *str)
+static void		commands_r(const char *line, t_lst **stack_a, t_lst **stack_b)
 {
-	int			i;
-
-	i = 0;
-	while (str[i] != '\0')
+	if (ft_strequ(line, "ra"))
+		ls_rotate(stack_a);
+	else if (ft_strequ(line, "rb"))
+		ls_rotate(stack_b);
+	else if (ft_strequ(line, "rr"))
 	{
-		if (!(ft_isdigit(str[i])))
+		ls_rotate(stack_a);
+		ls_rotate(stack_b);
+	}
+	else if (ft_strequ(line, "rra"))
+		ls_rev_rot(stack_a);
+	else if (ft_strequ(line, "rrb"))
+		ls_rev_rot(stack_b);
+	else if (ft_strequ(line, "rrr"))
+	{
+		ls_rev_rot(stack_a);
+		ls_rev_rot(stack_b);
+	}
+	else
+	{
+		ft_putendl_fd("Error", 2);
+		exit(0);
+	}
+}
+
+static void		commands(const char *line, t_lst **stack_a, t_lst **stack_b)
+{
+	if (ft_strequ(line, "sa"))
+		ls_swap(stack_a);
+	else if (ft_strequ(line, "sb"))
+		ls_swap(stack_b);
+	else if (ft_strequ(line, "ss"))
+	{
+		ls_swap(stack_b);
+		ls_swap(stack_a);
+	}
+	else if (ft_strequ(line, "pa"))
+		ls_push(stack_a, stack_b);
+	else if (ft_strequ(line, "pb"))
+		ls_push(stack_b, stack_a);
+	else
+		commands_r(line, stack_a, stack_b);
+}
+
+static void		instruction(t_lst *stack_a, t_lst *stack_b)
+{
+	char		*line;
+
+	while (stack_b == NULL)
+	{
+		while ((get_next_line(0, &line)) == 1)
+			commands(line, &stack_a, &stack_b);
+		if (ft_strequ(ls_verify(stack_a), "OK") && stack_b == NULL)
 		{
-			ft_putendl_fd("Error", 2);
+			ft_putendl("OK");
 			exit(0);
 		}
-		i++;
-	}
-	return (1);
-}
-
-int				search_space(char *str)
-{
-	int			i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] == ' ')
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
-void			mult_str(char **str, int i, t_stack **a, t_stack *head)
-{
-	while (str[i])
-	{
-		if (check_num(str[i]))
-			make_alist(a, head, str[i]);
-		i++;
+		ft_putendl("KO");
+		exit(0);
 	}
 }
 
-void			init_list(t_stack **a, t_stack *head, char **str)
+int				main(int argc, char *argv[])
 {
-	int			i;
-	char		**new_str;
+	t_lst		*stack_b;
+	t_lst		*stack_a;
 
-	i = 1;
-	new_str = NULL;
-	if (search_space(str[1]))
-	{
-		i = 0;
-		new_str = ft_strsplit(str[1], ' ');
-		while (new_str[i])
-		{
-			if (check_num(new_str[i]))
-			{
-				make_alist(a, head, new_str[i]);
-				ft_strdel(new_str);
-			}
-			i++;
-		}
-	}
-	else
-		mult_str(str, i, a, head);
-}
-
-int				main(int argc, char **argv)
-{
-	t_stack		*a;
-	t_stack		head;
-
-	a = NULL;
-	head.prev = &head;
-	head.next = NULL;
-	if (argc > 1)
-	{
-		init_list(&a, &head, argv);
-		a = head.next;
-		check_dup(&a, &head);
-		if (get_input(&a, &head) == 0)
-		{
-			free(a);
-			a = NULL;
-			return (0);
-		}
-	}
-	else
-		ft_putendl_fd("Error", 2);
+	stack_a = NULL;
+	stack_b = NULL;
+	if (argc < 2)
+		return (0);
+	else if (argc > 2)
+		ls_isnum(argc, argv);
+	stack_a = ls_stack(argc, argv);
+	instruction(stack_a, stack_b);
 	return (0);
 }
