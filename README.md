@@ -8,5 +8,5 @@ if a certain number in the list is moved to a certain position that is regarded 
  
 <br />
 Objectives <br />
-.Memory allocation <br />
-.Data structures <br />
+.Memory allocation in C<br />
+.Data structures and algorithms in C<br />
